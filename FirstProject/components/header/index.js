@@ -16,6 +16,7 @@ const Header = ( {content, content2} ) => // Be carefull, if I'm not using the r
 	};
 
 	const {hello} = temp; // hello = "hi"
+	const {hello, why} = temp; // hello = "hi" ; why = "?"
 */
 
 

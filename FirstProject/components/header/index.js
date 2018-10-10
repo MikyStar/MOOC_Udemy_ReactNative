@@ -1,6 +1,10 @@
 import React from 'react'
 import { Text } from 'react-native'
 
+/**
+ * Header is a stateless component
+ */
+
 const Header = ( {content, content2} ) => // Be carefull, if I'm not using the render function to use JSX, then it's not {} but it is ()
 (
 	<Text>{content} {content2}</Text>

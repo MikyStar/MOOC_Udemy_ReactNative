@@ -6,4 +6,17 @@ const Header = ( {content, content2} ) => // Be carefull, if I'm not using the r
 	<Text>{content} {content2}</Text>
 );
 
+/*
+	Basically, React is creating a props variable anyway and directly retrieving here the content and content2 attributes.
+	A cool thing with ES6 is to directly create a variable out of an attribute of a JSON such as
+	const temp =
+	{
+		hello : "hi",
+		why : "?"
+	};
+
+	const {hello} = temp; // hello = "hi"
+*/
+
+
 export default Header;

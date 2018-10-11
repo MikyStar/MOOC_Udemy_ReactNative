@@ -6,7 +6,7 @@ import style from './style'
  * Header is a stateless component
  */
 
-const Header = ( { content, content2 } ) => //If not using render(), to use JSX it's () not {}
+export default Header = ( { content, content2 } ) => //If not using render(), to use JSX it's () not {}
 (
 	<View>
 
@@ -31,6 +31,3 @@ const Header = ( { content, content2 } ) => //If not using render(), to use JSX 
 	const {hello} = temp; // hello = "hi"
 	const {hello, why} = temp; // hello = "hi" ; why = "?"
 */
-
-
-export default Header;

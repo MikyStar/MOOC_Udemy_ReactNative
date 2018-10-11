@@ -54,6 +54,14 @@ The attribute _alignItems_ takes care of the axis that _justifyContent_ is not t
 
 - [React Native Element](https://github.com/react-native-training/react-native-elements) : Lots of components already created and personalizable like lists, badges, forms ...
 
+# States and contexts in React
+
+In React, only classes have states.
+
+State is immutable, the constructor is the only place where I can directly access and assign it's value, otherwise we have to pass through setter.
+
+`Every time the state of a class is modified, the render function is called again`
+
 # Notes
 
 - I'm using a OnePlus 6 for this tutorial which is an Android smartphone with a Notch ; While not applying CSS to my component, the natural behaviour is that the text of the component for instance is at the top of the screen. `The Notch is covering up some part of the text !`

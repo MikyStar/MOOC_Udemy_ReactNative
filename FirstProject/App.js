@@ -12,7 +12,7 @@ export default class App extends React.Component
 		this.state = { myText : "Texte par défaut"}; // State is immutable, the constructor is the only place where I can directly access and assign it's value, otherwise we have to pass through setter
 	}
 
-	onPressButton()
+	onPressButton = () =>
 	{
 		this.setState( { myText : "Clické" } );
 		console.log( "button pressed" )
@@ -29,7 +29,7 @@ export default class App extends React.Component
 					iconRight
 					icon={ {name : 'code'} }
 					title="I'm a button"
-					onPress={ this.onPressButton.bind(this) } // This way the this in onPressButton refers to the same this as the class, otherwise it would have refered the click object
+					onPress={ this.onPressButton }
 				/>
 
 				<Text>{ this.state.myText }</Text>

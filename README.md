@@ -54,7 +54,7 @@ The attribute _alignItems_ takes care of the axis that _justifyContent_ is not t
 
 - [React Native Element](https://github.com/react-native-training/react-native-elements) : Lots of components already created and personalizable like lists, badges, forms ...
 
-# States and contexts in React
+# States in React classes
 
 In React, only classes have states.
 

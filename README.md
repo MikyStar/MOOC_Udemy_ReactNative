@@ -19,9 +19,14 @@ cd <name of the project>
 # Visualizing the app
 
 ```sh
-expo start
+expo start # For the Expo App
+
+expo start --ios # For the iOS emulator
+
+expo start --android # For the Android Emulator
 ```
 
+> If you run through the Expo App on your phone :
 > On your phone, download the Expo App, then flash the QR code on your computer with it.
 > Your phone and computer have to be on the same network so `make sure there's no VPN or stuffs like this`
 
@@ -44,6 +49,10 @@ _justifyContent : 'center'_ align the element in the center of the _flexDirectio
 Here are other usefull _justifyContent_ : 'space-between', 'space-around'
 
 The attribute _alignItems_ takes care of the axis that _justifyContent_ is not taking care of
+
+# Usefull libraries
+
+- [React Native Element](https://github.com/react-native-training/react-native-elements) : Lots of components already created and personalizable like lists, badges, forms ...
 
 # Notes
 

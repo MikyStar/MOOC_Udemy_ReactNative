@@ -23,6 +23,7 @@ expo start
 ```
 
 > On your phone, download the Expo App, then flash the QR code on your computer with it.
+> Your phone and computer have to be on the same network so `make sure there's no VPN or stuffs like this`
 
 # The render method
 

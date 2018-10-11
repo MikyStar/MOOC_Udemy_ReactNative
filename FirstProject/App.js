@@ -7,7 +7,7 @@ export default class App extends React.Component
 	render()
 	{
 		return (
-			<Header content="Liste de tâches en props" content2="Autre chose .................................."/>
+			<Header content="Liste de tâches " content2="en props !" />
 		);
 	}
 }

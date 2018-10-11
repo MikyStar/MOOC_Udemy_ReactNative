@@ -1,13 +1,22 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
+import style from './style'
 
 /**
  * Header is a stateless component
  */
 
-const Header = ( {content, content2} ) => // Be carefull, if I'm not using the render function to use JSX, then it's not {} but it is ()
+const Header = ( { content, content2 } ) => //If not using render(), to use JSX it's () not {}
 (
-	<Text>{content} {content2}</Text>
+	<View>
+
+		<View style={ style.subHeader } /> {/* The little blue bar, yes this is how you comment */}
+
+		<View>
+			<Text>{ content } { content2 }</Text>
+		</View>
+
+	</View>
 );
 
 /*

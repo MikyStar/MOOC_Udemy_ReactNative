@@ -4,10 +4,10 @@ import { Button } from 'react-native-elements'
 import Modal from 'react-native-modal'
 import { style } from './style'
 
-export default MenuTask = () =>
+export default MenuTask = ( { isVisible, onDisapearCallback }) =>
 (
 	<Modal
-		isVisible // Actually it should be isVisible={true} but in JSX if it's true no need
+		isVisible={ isVisible }
 		animationIn={ 'zoomInDown' }
 		animationOut={ 'zoomOutUp' }
 		animationInTiming={ 1000 } // in ms
@@ -25,12 +25,12 @@ export default MenuTask = () =>
 				<Button
 					buttonStyle={ style.buttonDelete }
 					title="Supprimer"
-					onPress={ () => console.log( 'suppr' ) }
+					onPress={ () => onDisapearCallback() }
 				/>
 				<Button
 					buttonStyle={ style.buttonChangeStatus }
 					title="Changer status"
-					onPress={ () => console.log( 'change' ) }
+					onPress={ () => onDisapearCallback() }
 				/>
 
 			</View>

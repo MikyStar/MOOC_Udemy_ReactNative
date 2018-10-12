@@ -100,12 +100,21 @@ export default class App extends React.Component
 	constructor(props)
 	{
 		super(props);
-		this.state = { tasks }; // State is immutable, the constructor is the only place where I can directly access and assign it's value, otherwise we have to pass through setter
+		this.state =
+		{
+			tasks,
+			isMenuTaskVisible : false
+		};
 	}
 
 	displayMenuTask = ( taskContent ) =>
 	{
 		console.log('onPress', taskContent )
+	}
+
+	toggleMenuTaskVisibility = () =>
+	{
+		this.setState( { isMenuTaskVisible : !this.state.isMenuTaskVisible } )
 	}
 
 	render()
@@ -115,10 +124,16 @@ export default class App extends React.Component
 				<Header content="Liste de tâches " content2="en props !" />
 
 				<ScrollView>
-					<TaskList taskList={ this.state.tasks } onPressCallback={ this.displayMenuTask } />
+					<TaskList
+						taskList={ this.state.tasks }
+						onPressCallback={ this.toggleMenuTaskVisibility }
+					/>
 				</ScrollView>
 
-				<MenuTask />
+				<MenuTask
+					isVisible={ this.state.isMenuTaskVisible }
+					onDisapearCallback={ this.toggleMenuTaskVisibility }
+				/>
 
 				<ButtonAddTask />
 			</View>

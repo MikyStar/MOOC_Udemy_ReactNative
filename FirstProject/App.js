@@ -4,6 +4,7 @@ import { Button as ButtonRNE } from 'react-native-elements' // The alias here is
 import Header from './components/header'
 import TaskList from './components/task-list'
 import ButtonAddTask from './components/button-add-task'
+import MenuTask from './components/menu-task'
 
 const tasks =
 [
@@ -116,6 +117,8 @@ export default class App extends React.Component
 				<ScrollView>
 					<TaskList taskList={ this.state.tasks } onPressCallback={ this.displayMenuTask } />
 				</ScrollView>
+
+				<MenuTask />
 
 				<ButtonAddTask />
 			</View>

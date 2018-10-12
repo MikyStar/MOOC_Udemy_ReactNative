@@ -98,12 +98,26 @@ export default class App extends React.Component
 
 	hideRenamePrompt = () =>
 	{
-		//TODO
+		this.setState(
+		{
+			isRenamePromptVisible : false,
+			currentTask : {}
+		})
 	}
 
 	onRenamePrompt = value =>
 	{
-		//TODO
+		const updatedTask = this.state.currentTask;
+		updatedTask.content = value;
+
+		const index = lodash.findIndex( this.state.tasks, { id: this.state.currentTask.id } );
+		const copyTasks = this.state.tasks;
+		copyTasks[index] = updatedTask
+
+		this.setState( {tasks : copyTasks}, () => // setState is asynchronous so this function is called once it's finished. It wasn't necessary to do like this but now you know it's possible 
+		{
+			this.hideRenamePrompt()
+		});
 	}
 
 	displayRenameTask = task =>

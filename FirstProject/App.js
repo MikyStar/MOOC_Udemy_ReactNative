@@ -10,95 +10,6 @@ import MenuTask from './components/menu-task'
 import { TaskStatus } from './model'
 import AddTaskPromp from './components/add-task-prompt'
 
-const tasks =
-[
-	{
-		id : 0,
-		content : 'First',
-		status : 'En cours'
-	},
-	{
-		id : 1,
-		content : 'Second',
-		status : 'En cours'
-	},
-	{
-		id : 2,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 3,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 4,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 5,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 6,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 7,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 8,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 9,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 10,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 11,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 12,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 13,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 14,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 15,
-		content : 'Third',
-		status : 'Terminé'
-	},
-	{
-		id : 16,
-		content : 'Sixteen',
-		status : 'Terminé'
-	},
-]
-
 export default class App extends React.Component
 {
 	constructor(props)
@@ -106,9 +17,11 @@ export default class App extends React.Component
 		super(props);
 		this.state =
 		{
-			tasks,
+			tasks : [],
 			isMenuTaskVisible : false,
-			currentTask : {}
+			currentTask : {},
+			isAddPrompVisible : false,
+			idGenerator : 0
 		};
 	}
 
@@ -167,7 +80,24 @@ export default class App extends React.Component
 
 	onAddTask = value =>
 	{
+		const newTask =
+		{
+			id : this.state.idGenerator,
+			content : value,
+			status : TaskStatus.todo
+		}
 
+		this.setState(
+		{
+			tasks: [...this.state.tasks, newTask], // It's called destructuration : Basically, with ... I'm exploding my array and then with the , I'm putting an other element to the new array created between [ ]
+			isAddPrompVisible : false,
+			idGenerator : this.state.idGenerator + 1 // Because with ++ it would have try to increment the value of idGenerator which is forbidden; you have to go through setState to change a state attribute
+		})
+	}
+
+	displayAddPrompt = () =>
+	{
+		this.setState( { isAddPrompVisible : true } )
 	}
 
 	render()
@@ -191,12 +121,14 @@ export default class App extends React.Component
 				/>
 
 				<AddTaskPromp
-					isVisible
+					isVisible={ this.state.isAddPrompVisible }
 					onCancelCallback={ this.hidePrompt }
 					onSubmitCallback={ this.onAddTask }
 				/>
 
-				<ButtonAddTask />
+				<ButtonAddTask
+					onPressCallback={ this.displayAddPrompt }
+				/>
 			</View>
 		);
 	}

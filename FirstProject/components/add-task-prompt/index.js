@@ -5,7 +5,7 @@ export default AddTaskPrompt = ( { isVisible, onCancelCallback, onSubmitCallback
 (
 	<Prompt
 		title="Ajouter une nouvelle tâche"
-		placeHolder="Exemple : Faire les courses"
+		placeholder="Exemple : Faire les courses"
 		defaultValue=""
 		visible={ isVisible }
 		onCancel={ () => onCancelCallback() }

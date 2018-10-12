@@ -24,7 +24,7 @@ export default TaskList = ( { taskList, onPressCallback } ) =>
 										/>
 						}
 					}
-					onPress={ () => onPressCallback( task.content ) }
+					onPress={ () => onPressCallback( task ) }
 				/>
 			))
 		}

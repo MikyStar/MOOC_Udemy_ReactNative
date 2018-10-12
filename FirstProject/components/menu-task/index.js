@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements'
 import Modal from 'react-native-modal'
 import { style } from './style'
 
-export default MenuTask = ( { isVisible, onDisapearCallback }) =>
+export default MenuTask = ( { isVisible, onDisapearCallback, onDeleteCallback, onChangeStatusCallback }) =>
 (
 	<Modal
 		isVisible={ isVisible }
@@ -26,12 +26,12 @@ export default MenuTask = ( { isVisible, onDisapearCallback }) =>
 				<Button
 					buttonStyle={ style.buttonDelete }
 					title="Supprimer"
-					onPress={ () => onDisapearCallback() }
+					onPress={ () => onDeleteCallback() }
 				/>
 				<Button
 					buttonStyle={ style.buttonChangeStatus }
 					title="Changer status"
-					onPress={ () => onDisapearCallback() }
+					onPress={ () => onChangeStatusCallback() }
 				/>
 
 			</View>

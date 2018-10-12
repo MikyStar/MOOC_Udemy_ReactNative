@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native'
 import { Button as ButtonRNE } from 'react-native-elements' // The alias here is not necessary, but if someday there's the same name in my imports, I can distinguish with that
+import lodash from 'lodash'
+
 import Header from './components/header'
 import TaskList from './components/task-list'
 import ButtonAddTask from './components/button-add-task'
@@ -103,7 +105,8 @@ export default class App extends React.Component
 		this.state =
 		{
 			tasks,
-			isMenuTaskVisible : false
+			isMenuTaskVisible : false,
+			currentTask : {}
 		};
 	}
 
@@ -112,9 +115,34 @@ export default class App extends React.Component
 		console.log('onPress', taskContent )
 	}
 
-	toggleMenuTaskVisibility = () =>
+	toggleMenuTaskVisibility = ( task ) =>
 	{
-		this.setState( { isMenuTaskVisible : !this.state.isMenuTaskVisible } )
+		let currentTask = task;
+
+		if(this.state.isMenuTaskVisible)
+			currentTask = {}
+
+		this.setState(
+		{
+			isMenuTaskVisible : !this.state.isMenuTaskVisible,
+			currentTask
+		})
+	}
+
+	deleteCurrentTask = () =>
+	{
+		const index = lodash.findIndex( this.state.tasks, { id : this.state.currentTask.id } );
+		const copyTasks = this.state.tasks;
+
+		copyTasks.splice(index, 1); // = You suppress 1 element at the position index
+
+		this.setState(
+		{
+			tasks : copyTasks,
+			currentTask : {}
+		});
+
+		this.toggleMenuTaskVisibility();
 	}
 
 	render()
@@ -133,6 +161,7 @@ export default class App extends React.Component
 				<MenuTask
 					isVisible={ this.state.isMenuTaskVisible }
 					onDisapearCallback={ this.toggleMenuTaskVisibility }
+					onDeleteCallback={ this.deleteCurrentTask }
 				/>
 
 				<ButtonAddTask />

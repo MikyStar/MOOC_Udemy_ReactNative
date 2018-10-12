@@ -1,12 +1,12 @@
 import React from 'react'
 import Prompt from 'rn-prompt'
 
-export default TextPrompt = ( { isVisible, onCancelCallback, onSubmitCallback } ) =>
+export default TextPrompt = ( { isVisible, title, placeHolder, defaultValue, onCancelCallback, onSubmitCallback } ) =>
 (
 	<Prompt
-		title="Ajouter une nouvelle tâche"
-		placeholder="Exemple : Faire les courses"
-		defaultValue=""
+		title={ title }
+		placeholder={ placeHolder }
+		defaultValue={ defaultValue }
 		visible={ isVisible }
 		onCancel={ () => onCancelCallback() }
 		onSubmit={ value => onSubmitCallback( value ) }

@@ -22,6 +22,7 @@ export default class App extends React.Component
 			currentTask : {},
 			isAddPrompVisible : false,
 			idGenerator : 0,
+			isRenamePromptVisible : false
 		};
 	}
 
@@ -73,7 +74,7 @@ export default class App extends React.Component
 		this.setState( { taskList : copyTasks, isMenuTaskVisible : false, currentTask : {} } )
 	}
 
-	hidePrompt = () =>
+	hideAddPrompt = () =>
 	{
 		this.setState( { isAddPrompVisible : false } )
 	}
@@ -95,6 +96,25 @@ export default class App extends React.Component
 		})
 	}
 
+	hideRenamePrompt = () =>
+	{
+		//TODO
+	}
+
+	onRenamePrompt = value =>
+	{
+		//TODO
+	}
+
+	displayRenameTask = task =>
+	{
+		this.setState(
+		{
+			currentTask : task,
+			isRenamePromptVisible : true
+		})
+	}
+
 	displayAddPrompt = () =>
 	{
 		this.setState( { isAddPrompVisible : true } )
@@ -110,6 +130,7 @@ export default class App extends React.Component
 					<TaskList
 						taskList={ this.state.tasks }
 						onPressCallback={ this.toggleMenuTaskVisibility }
+						onLongPressCallback={ this.displayRenameTask }
 					/>
 				</ScrollView>
 
@@ -122,8 +143,20 @@ export default class App extends React.Component
 
 				<TextPrompt
 					isVisible={ this.state.isAddPrompVisible }
-					onCancelCallback={ this.hidePrompt }
+					onCancelCallback={ this.hideAddPrompt }
 					onSubmitCallback={ this.onAddTask }
+					title='Ajouter une nouvelle tâche'
+					placeHolder='Exemple : Faire les courses'
+					defaultValue=''
+				/>
+
+				<TextPrompt
+					isVisible={ this.state.isRenamePromptVisible }
+					onCancelCallback={ this.hideRenamePrompt }
+					onSubmitCallback={ this.onRenamePrompt }
+					title='Renommer la tâche'
+					placeHolder=''
+					defaultValue={ this.state.currentTask.content }
 				/>
 
 				<ButtonAddTask

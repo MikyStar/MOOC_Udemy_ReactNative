@@ -5,7 +5,7 @@ import { TaskStatus } from '../../model'
 import COLORS from '../../styles/colors'
 import { style } from './style'
 
-export default TaskList = ( { taskList, onPressCallback } ) =>
+export default TaskList = ( { taskList, onPressCallback, onLongPressCallback } ) =>
 (
 	<List containerStyle={ style.list }> { /* To overide the default margin top from RNE */ }
 		{
@@ -25,6 +25,7 @@ export default TaskList = ( { taskList, onPressCallback } ) =>
 						}
 					}
 					onPress={ () => onPressCallback( task ) }
+					onLongPress={ () => onLongPressCallback( task ) }
 				/>
 			))
 		}

@@ -63,6 +63,7 @@
 			2,
 			"always"
 		],
-		"react/jsx-closing-bracket-location" : "off"
+		"react/jsx-closing-bracket-location" : "off",
+		"react/sort-comp" : "off"
 	}
 }

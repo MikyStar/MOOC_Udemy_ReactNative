@@ -8,9 +8,10 @@ export default ButtonAddTask = () =>
 (
 	<ActionButton
 		buttonColor={ COLORS.primaryAction }
-		icon={ <Icon color={ COLORS.white } name={ 'add' } /> }
 		onPress={ () => onPress() }
-	/>
+	>
+			<Icon color={ COLORS.white } name={ 'add' } />
+	</ActionButton>
 );
 
 function onPress()

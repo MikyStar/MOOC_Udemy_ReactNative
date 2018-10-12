@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native'
+import { View, ScrollView, Text, AsyncStorage } from 'react-native'
 import { Button as ButtonRNE } from 'react-native-elements' // The alias here is not necessary, but if someday there's the same name in my imports, I can distinguish with that
 import lodash from 'lodash'
 
@@ -10,6 +10,8 @@ import MenuTask from './components/menu-task'
 import { TaskStatus } from './model'
 import TextPrompt from './components/text-prompt'
 import { style } from './style'
+
+const storageKey = 'taskList';
 
 export default class App extends React.Component
 {
@@ -26,6 +28,27 @@ export default class App extends React.Component
 			isRenamePromptVisible : false
 		};
 	}
+
+	/**
+	 *	It's the next thing called just after the constructor.
+	 * 	Here we do all ajax things and all that's not working on the state
+	 */
+	componentWillMount = () =>
+	{
+		AsyncStorage.getItem( storageKey ).then(
+			( storedTaskList ) =>
+			{
+				if( storedTaskList )
+				{
+					this.setState( { tasks: JSON.parse(storedTaskList) }, () =>
+					{
+						this.setState( { idGenerator : this.state.tasks[ this.state.tasks.length -1 ].id + 1 } )
+					})
+				}
+			}
+		)
+	}
+
 
 	displayMenuTask = ( taskContent ) =>
 	{
@@ -57,9 +80,11 @@ export default class App extends React.Component
 		{
 			tasks : copyTasks,
 			currentTask : {}
+		}, () =>
+		{
+			this.toggleMenuTaskVisibility();
+			this.saveTaskList()
 		});
-
-		this.toggleMenuTaskVisibility();
 	}
 
 	toggleTaskStatus = () =>
@@ -72,7 +97,10 @@ export default class App extends React.Component
 
 		copyTasks[index] = updatedTask;
 
-		this.setState( { taskList : copyTasks, isMenuTaskVisible : false, currentTask : {} } )
+		this.setState( { taskList : copyTasks, isMenuTaskVisible : false, currentTask : {} }, () =>
+		{
+			this.saveTaskList()
+		})
 	}
 
 	hideAddPrompt = () =>
@@ -94,6 +122,9 @@ export default class App extends React.Component
 			tasks: [...this.state.tasks, newTask], // It's called destructuration : Basically, with ... I'm exploding my array and then with the , I'm putting an other element to the new array created between [ ]
 			isAddPrompVisible : false,
 			idGenerator : this.state.idGenerator + 1 // Because with ++ it would have try to increment the value of idGenerator which is forbidden; you have to go through setState to change a state attribute
+		}, () =>
+		{
+			this.saveTaskList()
 		})
 	}
 
@@ -118,6 +149,7 @@ export default class App extends React.Component
 		this.setState( {tasks : copyTasks}, () => // setState is asynchronous so this function is called once it's finished. It wasn't necessary to do like this but now you know it's possible
 		{
 			this.hideRenamePrompt()
+			this.saveTaskList()
 		});
 	}
 
@@ -157,6 +189,11 @@ export default class App extends React.Component
 				</View>
 			)
 		}
+	}
+
+	saveTaskList = () =>
+	{
+		AsyncStorage.setItem( storageKey, JSON.stringify( this.state.tasks ) );
 	}
 
 	render()

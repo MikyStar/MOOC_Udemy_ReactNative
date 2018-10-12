@@ -14,6 +14,7 @@ export default MenuTask = ( { isVisible, onDisapearCallback }) =>
 		animationOutTiming={ 1000 }
 		backdropTransitionInTiming={ 1000 }
 		backdropTransitionOutTiming={ 1000 }
+		onBackdropPress={ () => onDisapearCallback() }
 	>
 		<View style={ style.modal }> { /* To apply style to a Modal, you have to actually apply to its children */}
 

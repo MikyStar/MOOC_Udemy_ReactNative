@@ -7,6 +7,7 @@ import Header from './components/header'
 import TaskList from './components/task-list'
 import ButtonAddTask from './components/button-add-task'
 import MenuTask from './components/menu-task'
+import { TaskStatus } from './model'
 
 const tasks =
 [
@@ -145,6 +146,19 @@ export default class App extends React.Component
 		this.toggleMenuTaskVisibility();
 	}
 
+	toggleTaskStatus = () =>
+	{
+		const updatedTask = this.state.currentTask;
+		updatedTask.status = this.state.currentTask.status === TaskStatus.done ? TaskStatus.todo : TaskStatus.done;
+
+		const index = lodash.findIndex( this.state.tasks, { id: this.state.currentTask.id } );
+		const copyTasks = this.state.tasks;
+
+		copyTasks[index] = updatedTask;
+
+		this.setState( { taskList : copyTasks, isMenuTaskVisible : false, currentTask : {} } )
+	}
+
 	render()
 	{
 		return (
@@ -162,6 +176,7 @@ export default class App extends React.Component
 					isVisible={ this.state.isMenuTaskVisible }
 					onDisapearCallback={ this.toggleMenuTaskVisibility }
 					onDeleteCallback={ this.deleteCurrentTask }
+					onChangeStatusCallback={ this.toggleTaskStatus }
 				/>
 
 				<ButtonAddTask />

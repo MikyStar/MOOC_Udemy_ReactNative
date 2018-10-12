@@ -8,6 +8,7 @@ import TaskList from './components/task-list'
 import ButtonAddTask from './components/button-add-task'
 import MenuTask from './components/menu-task'
 import { TaskStatus } from './model'
+import AddTaskPromp from './components/add-task-prompt'
 
 const tasks =
 [
@@ -159,6 +160,16 @@ export default class App extends React.Component
 		this.setState( { taskList : copyTasks, isMenuTaskVisible : false, currentTask : {} } )
 	}
 
+	hidePrompt = () =>
+	{
+
+	}
+
+	onAddTask = value =>
+	{
+
+	}
+
 	render()
 	{
 		return (
@@ -177,6 +188,12 @@ export default class App extends React.Component
 					onDisapearCallback={ this.toggleMenuTaskVisibility }
 					onDeleteCallback={ this.deleteCurrentTask }
 					onChangeStatusCallback={ this.toggleTaskStatus }
+				/>
+
+				<AddTaskPromp
+					isVisible
+					onCancelCallback={ this.hidePrompt }
+					onSubmitCallback={ this.onAddTask }
 				/>
 
 				<ButtonAddTask />

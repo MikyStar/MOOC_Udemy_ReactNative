@@ -4,7 +4,11 @@ import { List, ListItem } from 'react-native-elements';
 export default TaskList = ( { taskList } ) =>
 (
 	<List>
-		<ListItem title={ taskList[0].content } />
-		<ListItem title={ taskList[1].content } />
+		{
+			taskList.map( ( task ) =>
+			{
+				return <ListItem key={ task.id } title={ task.content } />
+			})
+		}
 	</List>
 );

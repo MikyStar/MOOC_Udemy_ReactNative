@@ -6,34 +6,36 @@ import { style } from './style'
 
 export default MenuTask = () =>
 (
-	<View>
+	<Modal
+		isVisible // Actually it should be isVisible={true} but in JSX if it's true no need
+		animationIn={ 'zoomInDown' }
+		animationOut={ 'zoomOutUp' }
+		animationInTiming={ 1000 } // in ms
+		animationOutTiming={ 1000 }
+		backdropTransitionInTiming={ 1000 }
+		backdropTransitionOutTiming={ 1000 }
+	>
+		<View style={ style.modal }> { /* To apply style to a Modal, you have to actually apply to its children */}
 
-		<Modal
-			isVisible // Actually it should be isVisible={true} but in JSX if it's true no need
-			animationIn={ 'zoomInDown' }
-			animationOut={ 'zoomOutUp' }
-			animationInTiming={ 1000 } // in ms
-			animationOutTiming={ 1000 }
-			backdropTransitionInTiming={ 1000 }
-			backdropTransitionOutTiming={ 1000 }
-		>
-			<View>
+			<View style={ style.textView }>
 				<Text>Que souhaitez vous faire ?</Text>
 			</View>
 
-			<View>
+			<View style={ style.buttonView }>
 				<Button
+					buttonStyle={ style.buttonDelete }
 					title="Supprimer"
-					onPress={ () => console.log('suppr') }
+					onPress={ () => console.log( 'suppr' ) }
 				/>
 				<Button
+					buttonStyle={ style.buttonChangeStatus }
 					title="Changer status"
-					onPress={ () => console.log('change') }
+					onPress={ () => console.log( 'change' ) }
 				/>
 
 			</View>
 
-		</Modal>
+		</View>
 
-	</View>
+	</Modal>
 );

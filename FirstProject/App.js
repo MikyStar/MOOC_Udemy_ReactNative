@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native'
+import { View, ScrollView, Text } from 'react-native'
 import { Button as ButtonRNE } from 'react-native-elements' // The alias here is not necessary, but if someday there's the same name in my imports, I can distinguish with that
 import lodash from 'lodash'
 
@@ -9,6 +9,7 @@ import ButtonAddTask from './components/button-add-task'
 import MenuTask from './components/menu-task'
 import { TaskStatus } from './model'
 import TextPrompt from './components/text-prompt'
+import { style } from './style'
 
 export default class App extends React.Component
 {
@@ -114,7 +115,7 @@ export default class App extends React.Component
 		const copyTasks = this.state.tasks;
 		copyTasks[index] = updatedTask
 
-		this.setState( {tasks : copyTasks}, () => // setState is asynchronous so this function is called once it's finished. It wasn't necessary to do like this but now you know it's possible 
+		this.setState( {tasks : copyTasks}, () => // setState is asynchronous so this function is called once it's finished. It wasn't necessary to do like this but now you know it's possible
 		{
 			this.hideRenamePrompt()
 		});
@@ -134,12 +135,11 @@ export default class App extends React.Component
 		this.setState( { isAddPrompVisible : true } )
 	}
 
-	render()
+	renderTaskList = () =>
 	{
-		return (
-			<View style={ { flex : 1 } }> { /* flex 1 means that the view is taking 100% of the screen, like weights in Android */ }
-				<Header content="Liste de tâches " content2="en props !" />
-
+		if( this.state.tasks.length > 0 )
+		{
+			return (
 				<ScrollView>
 					<TaskList
 						taskList={ this.state.tasks }
@@ -147,6 +147,25 @@ export default class App extends React.Component
 						onLongPressCallback={ this.displayRenameTask }
 					/>
 				</ScrollView>
+			)
+		}
+		else
+		{
+			return (
+				<View style={ style.noTask }>
+					<Text>Cliquer sur le bouton + pour ajouter une tâche</Text>
+				</View>
+			)
+		}
+	}
+
+	render()
+	{
+		return (
+			<View style={ { flex : 1 } }> { /* flex 1 means that the view is taking 100% of the screen, like weights in Android */ }
+				<Header content="Liste de tâches " content2="en props !" />
+
+				{ this.renderTaskList() }
 
 				<MenuTask
 					isVisible={ this.state.isMenuTaskVisible }

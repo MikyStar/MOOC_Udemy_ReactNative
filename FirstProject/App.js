@@ -102,6 +102,11 @@ export default class App extends React.Component
 		this.state = { tasks }; // State is immutable, the constructor is the only place where I can directly access and assign it's value, otherwise we have to pass through setter
 	}
 
+	displayMenuTask = ( taskContent ) =>
+	{
+		console.log('onPress', taskContent )
+	}
+
 	render()
 	{
 		return (
@@ -109,7 +114,7 @@ export default class App extends React.Component
 				<Header content="Liste de tâches " content2="en props !" />
 
 				<ScrollView>
-					<TaskList taskList={ this.state.tasks } />
+					<TaskList taskList={ this.state.tasks } onPressCallback={ this.displayMenuTask } />
 				</ScrollView>
 
 				<ButtonAddTask />

@@ -8,7 +8,7 @@ import TaskList from './components/task-list'
 import ButtonAddTask from './components/button-add-task'
 import MenuTask from './components/menu-task'
 import { TaskStatus } from './model'
-import AddTaskPromp from './components/add-task-prompt'
+import TextPrompt from './components/text-prompt'
 
 export default class App extends React.Component
 {
@@ -21,7 +21,7 @@ export default class App extends React.Component
 			isMenuTaskVisible : false,
 			currentTask : {},
 			isAddPrompVisible : false,
-			idGenerator : 0
+			idGenerator : 0,
 		};
 	}
 
@@ -120,7 +120,7 @@ export default class App extends React.Component
 					onChangeStatusCallback={ this.toggleTaskStatus }
 				/>
 
-				<AddTaskPromp
+				<TextPrompt
 					isVisible={ this.state.isAddPrompVisible }
 					onCancelCallback={ this.hidePrompt }
 					onSubmitCallback={ this.onAddTask }

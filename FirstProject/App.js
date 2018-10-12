@@ -75,7 +75,7 @@ export default class App extends React.Component
 
 	hidePrompt = () =>
 	{
-
+		this.setState( { isAddPrompVisible : false } )
 	}
 
 	onAddTask = value =>

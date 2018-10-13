@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const App = function ()
-{
-	return <div>Salut les amis</div>
-}
+import App from './containers/app'
 
 ReactDOM.render( <App />, document.querySelector('.container') );

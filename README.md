@@ -1,13 +1,21 @@
 # MOOC_Udemy_ReactNative
 
-From the MOOC on Udemy by [Robin LEBHAR](https://www.udemy.com/tuto-react-native-pour-debutants/learn/v4/overview).
+From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debutants/learn/v4/overview) on Udemy by Robin LEBHAR, but also his [React and Redux MOOC](https://www.udemy.com/react-redux-tutoriel-pour-debutants-en-francais/learn/v4/overview).
 
-# Requirements
+# React-Redux
+
+# ReactNative
+
+## Requirements
+
+- NodeJS
+
+## Requirements
 
 - NodeJS
 - create-react-native-app
 
-# Creating a project
+## Creating a project
 
 `NodeJS required`
 
@@ -16,7 +24,7 @@ create-react-native-app <name of the project>
 cd <name of the project>
 ```
 
-# Visualizing the app
+## Visualizing the app
 
 ```sh
 expo start # For the Expo App
@@ -30,13 +38,13 @@ expo start --android # For the Android Emulator
 > On your phone, download the Expo App, then flash the QR code on your computer with it.
 > Your phone and computer have to be on the same network so `make sure there's no VPN or stuffs like this`
 
-# The render method
+## The render method
 
 Every React component should have a render method.
 This one will automatically be called whenever the component should be display.
 It uses JSX to express what should be displayed.
 
-# React Native CSS Tips
+## React Native CSS Tips
 
 By default every views are displayed through the _flexDirection : 'column'_ CSS attribute, this attribute means that they are all going to stack themselves from the top left corner to the bottom left corner.
 
@@ -50,11 +58,11 @@ Here are other usefull _justifyContent_ : 'space-between', 'space-around'
 
 The attribute _alignItems_ takes care of the axis that _justifyContent_ is not taking care of
 
-# Usefull libraries
+## Usefull libraries
 
 - [React Native Element](https://github.com/react-native-training/react-native-elements) : Lots of components already created and personalizable like lists, badges, forms ...
 
-# States in React classes
+## States in React classes
 
 In React, only classes have states.
 
@@ -62,7 +70,7 @@ State is immutable, the constructor is the only place where I can directly acces
 
 `Every time the state of a class is modified, the render function is called again`
 
-# Deploy
+## Deploy
 
 The app.json file is describing everything the Expo Store needs to know to deploy your App.
 
@@ -74,22 +82,22 @@ expo build:ios # -> .ipa
 expo build:android # -> .apk
 ```
 
-# Commun problems
+## Commun problems
 
-## Error: Cannot add a child that doesn't have a YogaNode to a parent without a measure function!
+### Error: Cannot add a child that doesn't have a YogaNode to a parent without a measure function!
 
 - Make sure that every text you put is surrounded by \<Text\>\</Text\>
 - Remove every spaces between JSX comments and whatever before to not ask to render spaces
 
-## The error that the package manager is not running
+### The error that the package manager is not running
 
 - [Clear the package manager](https://forums.expo.io/t/how-to-clear-the-react-native-packager/1352/8)
 
-## Error connect ECONREFUSED
+### Error connect ECONREFUSED
 
 - Check your smatphone running Expo is on the same WiFi has your computer
 - Check neither of your devices are running a VPN
 
-# Notes
+## Notes
 
 - I'm using a OnePlus 6 for this tutorial which is an Android smartphone with a Notch ; While not applying CSS to my component, the natural behaviour is that the text of the component for instance is at the top of the screen. `The Notch is covering up some part of the text !`

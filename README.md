@@ -4,6 +4,10 @@ From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debuta
 
 # React-Redux
 
+# Notes
+
+- Every time a state change, the render function of the component get called. Even though, React is not doing all of the render method again, it just changes what has changed making without changing the rest of what's rendered.
+
 # ReactNative
 
 ## Requirements

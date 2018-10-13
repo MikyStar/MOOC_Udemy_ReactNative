@@ -217,7 +217,7 @@ export default class App extends React.Component
 					onSubmitCallback={ this.onAddTask }
 					title={ 'Ajouter une nouvelle tâche' }
 					placeHolder={ 'Exemple : Faire les courses' }
-					defaultValue={ 'null' }
+					defaultValue={ '' }
 				/>
 
 				<TextPrompt
@@ -225,7 +225,7 @@ export default class App extends React.Component
 					onCancelCallback={ this.hideRenamePrompt }
 					onSubmitCallback={ this.onRenamePrompt }
 					title={ 'Renommer la tâche' }
-					placeHolder={ 'null' }
+					placeHolder={ '' }
 					defaultValue={ this.state.currentTask.content }
 				/>
 

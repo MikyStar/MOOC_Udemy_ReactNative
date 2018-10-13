@@ -10,7 +10,7 @@ export default Header = ( { content, content2 } ) => //If not using render(), to
 (
 	<View>
 
-		<View style={ style.subHeader } /> {/* The little blue bar, yes this is how you comment */}
+		<View style={ style.subHeader } />{/* The little blue bar, yes this is how you comment */}
 
 		<View style={ style.header }>
 			<Text style={ style.text }>{ content } { content2 }</Text>

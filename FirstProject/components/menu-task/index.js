@@ -16,7 +16,7 @@ export default MenuTask = ( { isVisible, onDisapearCallback, onDeleteCallback, o
 		backdropTransitionOutTiming={ 1000 }
 		onBackdropPress={ () => onDisapearCallback() }
 	>
-		<View style={ style.modal }> { /* To apply style to a Modal, you have to actually apply to its children */}
+		<View style={ style.modal }>{ /* To apply style to a Modal, you have to actually apply to its children */}
 
 			<View style={ style.textView }>
 				<Text>Que souhaitez vous faire ?</Text>
@@ -25,12 +25,12 @@ export default MenuTask = ( { isVisible, onDisapearCallback, onDeleteCallback, o
 			<View style={ style.buttonView }>
 				<Button
 					buttonStyle={ style.buttonDelete }
-					title="Supprimer"
+					title={ "Supprimer" }
 					onPress={ () => onDeleteCallback() }
 				/>
 				<Button
 					buttonStyle={ style.buttonChangeStatus }
-					title="Changer status"
+					title={ "Changer status" }
 					onPress={ () => onChangeStatusCallback() }
 				/>
 

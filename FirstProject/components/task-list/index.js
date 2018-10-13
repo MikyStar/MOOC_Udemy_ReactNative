@@ -7,7 +7,7 @@ import { style } from './style'
 
 export default TaskList = ( { taskList, onPressCallback, onLongPressCallback } ) =>
 (
-	<List containerStyle={ style.list }> { /* To overide the default margin top from RNE */ }
+	<List containerStyle={ style.list }>{ /* To overide the default margin top from RNE */ }
 		{
 			taskList.map( ( task ) =>
 			(

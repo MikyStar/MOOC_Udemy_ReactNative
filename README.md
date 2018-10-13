@@ -78,7 +78,7 @@ expo build:android # -> .apk
 
 ## Error: Cannot add a child that doesn't have a YogaNode to a parent without a measure function!
 
-- Make sure that every text you put is surrounded by <Text></Text>
+- Make sure that every text you put is surrounded by \<Text\>\</Text\>
 - Remove every spaces between JSX comments and whatever before to not ask to render spaces
 
 # Notes

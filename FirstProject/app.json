@@ -1,27 +1,42 @@
 {
-  "expo": {
-    "name": "FirstProject",
-    "description": "This project is really great.",
-    "slug": "FirstProject",
-    "privacy": "public",
-    "sdkVersion": "30.0.0",
-    "platforms": ["ios", "android"],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
-  }
+	"expo":
+	{
+		"name": "Simple Tasks Manager",
+		"description": "A very simple Tasks manager to get my hands on React Native following a MOOC, see githubUrl.",
+		"slug": "SimpleTasksManager",
+		"icon" : "./assets/icon.png",
+		"version" : "1.0.0",
+		"privacy": "public",
+		"sdkVersion": "30.0.0",
+		"githubUrl" : "https://github.com/MikyStar/MOOC_Udemy_ReactNative/tree/master/FirstProject",
+		"platforms":
+		[
+			"ios",
+			"android"
+		],
+		"orientation": "portrait",
+		"splash":
+		{
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"updates":
+		{
+			"fallbackToCacheTimeout": 0
+		},
+		"assetBundlePatterns":
+		[
+			"**/*"
+		],
+		"ios":
+		{
+			"supportsTablet": true,
+			"bundleIdentifier" : "com.mikeaubenas.simpletasksmanager"
+		},
+		"android" :
+		{
+			"package" : "com.mikeaubenas.simpletasksmanager"
+		}
+	}
 }

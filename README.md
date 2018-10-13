@@ -62,6 +62,21 @@ State is immutable, the constructor is the only place where I can directly acces
 
 `Every time the state of a class is modified, the render function is called again`
 
+# Deploy
+
+The app.json file is describing everything the Expo Store needs to know to deploy your App.
+
+```sh
+expo publish # Send your project to the Expo Store
+```
+
+# Commun problems
+
+## Error: Cannot add a child that doesn't have a YogaNode to a parent without a measure function!
+
+- Make sure that every text you put is surrounded by <Text></Text>
+- Remove every spaces between JSX comments and whatever before to not ask to render spaces
+
 # Notes
 
 - I'm using a OnePlus 6 for this tutorial which is an Android smartphone with a Notch ; While not applying CSS to my component, the natural behaviour is that the text of the component for instance is at the top of the screen. `The Notch is covering up some part of the text !`

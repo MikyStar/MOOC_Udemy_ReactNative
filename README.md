@@ -68,6 +68,10 @@ The app.json file is describing everything the Expo Store needs to know to deplo
 
 ```sh
 expo publish # Send your project to the Expo Store
+
+expo build:ios # -> .ipa
+
+expo build:android # -> .apk
 ```
 
 # Commun problems

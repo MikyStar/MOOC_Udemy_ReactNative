@@ -199,8 +199,8 @@ export default class App extends React.Component
 	render()
 	{
 		return (
-			<View style={ { flex : 1 } }> { /* flex 1 means that the view is taking 100% of the screen, like weights in Android */ }
-				<Header content="Liste de tâches " content2="en props !" />
+			<View style={ { flex : 1 } }>{ /* flex 1 means that the view is taking 100% of the screen, like weights in Android */ }
+				<Header content={ "Liste de tâches " } content2={ "en props !" } />
 
 				{ this.renderTaskList() }
 
@@ -215,17 +215,17 @@ export default class App extends React.Component
 					isVisible={ this.state.isAddPrompVisible }
 					onCancelCallback={ this.hideAddPrompt }
 					onSubmitCallback={ this.onAddTask }
-					title='Ajouter une nouvelle tâche'
-					placeHolder='Exemple : Faire les courses'
-					defaultValue=''
+					title={ 'Ajouter une nouvelle tâche' }
+					placeHolder={ 'Exemple : Faire les courses' }
+					defaultValue={ 'null' }
 				/>
 
 				<TextPrompt
 					isVisible={ this.state.isRenamePromptVisible }
 					onCancelCallback={ this.hideRenamePrompt }
 					onSubmitCallback={ this.onRenamePrompt }
-					title='Renommer la tâche'
-					placeHolder=''
+					title={ 'Renommer la tâche' }
+					placeHolder={ 'null' }
 					defaultValue={ this.state.currentTask.content }
 				/>
 

@@ -81,6 +81,15 @@ expo build:android # -> .apk
 - Make sure that every text you put is surrounded by \<Text\>\</Text\>
 - Remove every spaces between JSX comments and whatever before to not ask to render spaces
 
+## The error that the package manager is not running
+
+- [Clear the package manager](https://forums.expo.io/t/how-to-clear-the-react-native-packager/1352/8)
+
+## Error connect ECONREFUSED
+
+- Check your smatphone running Expo is on the same WiFi has your computer
+- Check neither of your devices are running a VPN
+
 # Notes
 
 - I'm using a OnePlus 6 for this tutorial which is an Android smartphone with a Notch ; While not applying CSS to my component, the natural behaviour is that the text of the component for instance is at the top of the screen. `The Notch is covering up some part of the text !`

@@ -9,9 +9,8 @@ From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debuta
 ### Mounting
 
 1. _constructor()_
-2. _componentWillMount()_
-3. _render()_
-4. _componentDidMount()_
+2. _render()_
+3. _componentDidMount()_
 
 ### Updating
 

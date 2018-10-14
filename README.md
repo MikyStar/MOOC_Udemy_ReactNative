@@ -4,7 +4,28 @@ From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debuta
 
 # React-Redux
 
-# Notes
+## Component lifecycle
+
+### Mounting
+
+1. _constructor()_
+2. _componentWillMount()_
+3. _render()_
+4. _componentDidMount()_
+
+### Updating
+
+1. _componentWillReceiveProps()_
+2. _shouldComponentUpdate()_
+3. _componentWillUpdate()_
+4. _render()_
+5. _componentDidUpdate()_
+
+### Unmounting
+
+1. _componentWillUnmount()_
+
+## Notes
 
 - Every time a state change, the render function of the component get called. Even though, React is not doing all of the render method again, it just changes what has changed making without changing the rest of what's rendered.
 

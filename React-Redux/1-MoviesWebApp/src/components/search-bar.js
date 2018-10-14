@@ -31,8 +31,6 @@ class SearchBar extends Component
 						placeholder={ this.state.placeHolder }
 					/>
 
-					<p>{ this.state.searchText }</p>
-
 				</div>
 		)
 	}

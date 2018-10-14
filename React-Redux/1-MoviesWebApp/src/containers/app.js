@@ -4,6 +4,7 @@ import axios from 'axios'
 import SearchBar from '../components/search-bar'
 import VideoList from '../containers/video-list'
 import datas from '../../sensibleInformations'
+import VideoDetail from '../components/video-detail'
 
 class App extends React.Component
 {
@@ -40,6 +41,10 @@ class App extends React.Component
 			<div>
 				<SearchBar />
 				<VideoList />
+				<VideoDetail
+					title={ this.state.currentMovie.title }
+					description={ this.state.currentMovie.overview }
+				/>
 			</div>
 		);
 	}

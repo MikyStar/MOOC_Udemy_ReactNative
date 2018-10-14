@@ -11,7 +11,7 @@ const VideoList = () =>
 				{
 					movies.map( movie =>
 					{
-						return <VideoListItem movie={ movie } />
+						return <VideoListItem key={ movie } movie={ movie } />
 					})
 				}
 			</ul>

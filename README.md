@@ -65,8 +65,11 @@ expo start --android # For the Android Emulator
 ## The render method
 
 Every React component should have a render method.
+
 This one will automatically be called whenever the component should be display.
+
 It uses JSX to express what should be displayed.
+Every time the state of a component is modifies, then the render method is called again. Which means that if you do two setSates it will call render() twice but if you set all the values of your state in only one call to the setState method it will call render() just once.
 
 ## React Native CSS Tips
 

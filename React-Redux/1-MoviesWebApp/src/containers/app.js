@@ -26,21 +26,28 @@ class App extends React.Component
 			( response ) =>
 			{
 				this.setState(
-					{
-						movies: response.data.results.slice( 1, 6 ),
-						currentMovie: response.data.results[0]
-					} ) // To only get the 5 first items
-				console.log( this.state )
+				{
+					movieList: response.data.results.slice( 1, 6 ), // To only get the 5 first items
+					currentMovie: response.data.results[0]
+				})
 			}
 		);
 	}
 
 	render()
 	{
+		const renderVideoList = () =>
+		{
+			if(this.state.movieList.length >= 5)
+				return <VideoList movieList={this.state.movieList} />
+		}
+
 		return (
 			<div>
 				<SearchBar />
-				<VideoList />
+
+				{ renderVideoList() }
+
 				<VideoDetail
 					title={ this.state.currentMovie.title }
 					description={ this.state.currentMovie.overview }

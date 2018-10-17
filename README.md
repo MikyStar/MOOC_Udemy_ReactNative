@@ -24,6 +24,20 @@ From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debuta
 
 1. _componentWillUnmount()_
 
+## Redux
+
+### Why Redux ?
+
+Redux is used to manage every states of the application. Therefor, if a child of the child of the child of the chield .... needs a value from the state of his grand grand ... parent, he can have it easily without having to send props from a high level but also the other way around, the child can give value to a mush higher parent component without having to use callbacks of callbacks
+
+### How it works ?
+
+All states of the applications are located in the Store of Redux.
+
+To access those variables of state, we use _reducers_ who are basically getters. All reducers are defined in the Root Reducers by a key-value system : This variable of state in going to be linked to the return of this reducer.
+
+You never directly use a reducer, you pass by a trigger who will call by itself *all* reducers of the app (described in the Root reducers file)
+
 ## Notes
 
 - Every time a state change, the render function of the component get called. Even though, React is not doing all of the render method again, it just changes what has changed making without changing the rest of what's rendered.

@@ -19,6 +19,11 @@ class SearchBar extends Component
 		this.setState( { searchText: event.target.value } );
 	}
 
+	handleOnClick = event =>
+	{
+		this.props.callback(this.state.searchText)
+	}
+
 	/////////////////////
 
 	render()
@@ -26,7 +31,7 @@ class SearchBar extends Component
 		return (
 				<div className='row'>{/* Given that 'class' is already used in React, for CSS we have to use 'className' */}
 
-					<div className="col-md-8">{/* In Bootstrap everything is out of 12, so here we say you're a column of 8/12 */}
+					<div className="col-lg-8 input-group">{/* In Bootstrap everything is out of 12, so here we say you're a column of 8/12 */}
 
 						<input
 							onChange={ this.handleChange }
@@ -34,6 +39,10 @@ class SearchBar extends Component
 							type='text'
 							className='form-control input-lg'
 						/>
+
+						<span className='input-group-btn'>
+							<button className='btn btn-secondary' onClick={ this.handleOnClick }>Go</button>
+						</span>
 
 					</div>
 

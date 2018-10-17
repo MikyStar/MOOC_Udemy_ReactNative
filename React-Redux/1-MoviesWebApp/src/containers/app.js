@@ -53,7 +53,7 @@ class App extends React.Component
 		);
 	}
 
-	receiveCallback = ( movie ) =>
+	onClickListItem = ( movie ) =>
 	{
 		this.setState( { currentMovie : movie }, () =>
 		{
@@ -61,18 +61,40 @@ class App extends React.Component
 		})
 	}
 
+	onClickSearch = ( searchText ) =>
+	{
+		if(searchText)
+		{
+			axios.get( datas.getSearchMovieURL(searchText) ).then(
+				( response ) =>
+				{
+					if( response.data && response.data.results[0] )
+					{
+						if(response.data.results[0].id != this.state.currentMovie.id )
+						{
+							this.setState( { currentMovie : response.data.results[0] }, () =>
+							{
+								this.applyVideoToCurrentMovie();
+							})
+						}
+					}
+				}
+			);
+		}
+	}
+
 	render()
 	{
 		const renderVideoList = () =>
 		{
 			if(this.state.movieList.length >= 5)
-				return <VideoList movieList={this.state.movieList} callback={ this.receiveCallback } />
+				return <VideoList movieList={this.state.movieList} callback={ this.onClickListItem } />
 		}
 
 		return (
 			<div>
 				<div className='search_bar'>
-					<SearchBar />
+					<SearchBar callback={ this.onClickSearch } />
 				</div>
 
 				<div className='row'>

@@ -38,6 +38,14 @@ To access those variables of state, we use _reducers_ who are basically getters.
 
 You never directly use a reducer, you pass by a trigger who will call by itself *all* reducers of the app (described in the Root reducers file)
 
+## Difference container - component
+
+A container is a component that needs to know changes inside states.
+
+To give a stupid example because it isn't necessarly true : A container is the ListView because it needs to know the element in state that speaks about the elements of the list, it also knows if something is changing the content of the list so it can update it whereas the item of the list is a dumb component that just displays what it has been told to.
+
+If the list in the state is updated, it's not the items that will display something new, it's the ListView that is going to create new items with fixed data, it kind of is the factory that create immutable objects.
+
 ## Notes
 
 - Every time a state change, the render function of the component get called. Even though, React is not doing all of the render method again, it just changes what has changed making without changing the rest of what's rendered.

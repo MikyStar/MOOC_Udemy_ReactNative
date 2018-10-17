@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>React Redux ca marche</div>
-    );
-  }
+import UserList from '../containers/user-list'
+
+export default class App extends Component
+{
+	render()
+	{
+		return (
+			<div>
+
+				<UserList />
+
+			</div>
+		);
+	}
 }

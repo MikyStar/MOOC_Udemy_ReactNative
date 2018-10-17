@@ -29,9 +29,30 @@ class App extends React.Component
 				{
 					movieList: response.data.results.slice( 1, 6 ), // To only get the 5 first items
 					currentMovie: response.data.results[0]
+				}, () =>
+				{
+					this.applyVideoToCurrentMovie();
 				})
 			}
 		);
+	}
+
+	applyVideoToCurrentMovie()
+	{
+		axios.get( `${datas.getURLMovieGivenID(this.state.currentMovie.id)}` ).then(
+			( response ) =>
+			{
+				const youtubeKey = response.data.videos.results[0].key;
+				let newCurrentMovieState = this.state.currentMovie;
+				newCurrentMovieState.videoID = youtubeKey;
+
+				this.setState( { currentMovie : newCurrentMovieState } );
+				console.log(this.state)
+			}
+		);
+
+
+		// console.log("test", datas.getURLMovieGivenID(this.state.currentMovie.id) )
 	}
 
 	render()

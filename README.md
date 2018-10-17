@@ -38,6 +38,8 @@ To access those variables of state, we use _reducers_ who are basically getters.
 
 You never directly use a reducer, you pass by a trigger who will call by itself *all* reducers of the app (described in the Root reducers file)
 
+To trigger something on the global attribute state through reducers we will use _action creators_. Whenever an action creator is triggered, all reducers will be called once. To make sure only wanted reducers will do something, we pass an action type value and we switch case on it.
+
 ## Difference container - component
 
 A container is a component that needs to know changes inside states.

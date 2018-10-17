@@ -28,7 +28,7 @@ class App extends React.Component
 			{
 				this.setState(
 				{
-					movieList: response.data.results.slice( 1, 6 ), // To only get the 5 first items
+					movieList: response.data.results.slice( 1, 6 ), // To only get the 5 first items starting at 2nd position because the very first one is handled by the line just after that
 					currentMovie: response.data.results[0]
 				}, () =>
 				{
@@ -58,6 +58,7 @@ class App extends React.Component
 		this.setState( { currentMovie : movie }, () =>
 		{
 			this.applyVideoToCurrentMovie();
+			this.setRecommandation();
 		})
 	}
 
@@ -75,12 +76,26 @@ class App extends React.Component
 							this.setState( { currentMovie : response.data.results[0] }, () =>
 							{
 								this.applyVideoToCurrentMovie();
+								this.setRecommandation();
 							})
 						}
 					}
 				}
 			);
 		}
+	}
+
+	setRecommandation = () =>
+	{
+		axios.get( datas.getRecommandation( this.state.currentMovie.id ) ).then(
+			( response ) =>
+			{
+				this.setState(
+				{
+					movieList: response.data.results.slice( 0, 5 ), // To only get the 5 first items
+				})
+			}
+		);
 	}
 
 	render()

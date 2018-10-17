@@ -51,9 +51,14 @@ class App extends React.Component
 				console.log(this.state)
 			}
 		);
+	}
 
-
-		// console.log("test", datas.getURLMovieGivenID(this.state.currentMovie.id) )
+	receiveCallback = ( movie ) =>
+	{
+		this.setState( { currentMovie : movie }, () =>
+		{
+			this.applyVideoToCurrentMovie();
+		})
 	}
 
 	render()
@@ -61,7 +66,7 @@ class App extends React.Component
 		const renderVideoList = () =>
 		{
 			if(this.state.movieList.length >= 5)
-				return <VideoList movieList={this.state.movieList} />
+				return <VideoList movieList={this.state.movieList} callback={ this.receiveCallback } />
 		}
 
 		return (

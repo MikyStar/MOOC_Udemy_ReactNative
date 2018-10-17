@@ -1,10 +1,15 @@
 import React from 'react'
 import datas from '../../sensibleInformations'
 
-const VideoListItem = ( { movie } ) => // { movie } = let movie = props.movie
+const VideoListItem = ( props ) =>
 {
+	const { movie } = props;
+
 	return (
-		<li className='list-group-item'>
+		<li
+			className='list-group-item'
+			onClick={handleOnClick}
+		>
 
 			<div className='media'>
 
@@ -25,7 +30,13 @@ const VideoListItem = ( { movie } ) => // { movie } = let movie = props.movie
 
 			</div>
 		</li>
-	);
+	)
+
+	function handleOnClick()
+	{
+		props.callback(movie); //send the movie to parent conponent through a callback named callback
+	}
+
 }
 
 // It's better to directly explose the props element with the {} writing because props are read only, so if someday I want to change the value of a props, it's the only way to de it

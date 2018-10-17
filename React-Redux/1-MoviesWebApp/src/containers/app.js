@@ -66,16 +66,27 @@ class App extends React.Component
 
 		return (
 			<div>
-				<SearchBar />
+				<div className='search_bar'>
+					<SearchBar />
+				</div>
 
-				<Video videoID={ this.state.currentMovie.videoID } />
+				<div className='row'>
 
-				{ renderVideoList() }
+					<div className='col-md-8'>
+						<Video videoID={ this.state.currentMovie.videoID } />
 
-				<VideoDetail
-					title={ this.state.currentMovie.title }
-					description={ this.state.currentMovie.overview }
-				/>
+						<VideoDetail
+							title={this.state.currentMovie.title}
+							description={this.state.currentMovie.overview}
+						/>
+					</div>
+
+					<div className='col-md-4'>
+						{ renderVideoList() }
+					</div>
+
+				</div>
+
 			</div>
 		);
 	}

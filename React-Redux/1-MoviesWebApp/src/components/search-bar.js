@@ -24,12 +24,18 @@ class SearchBar extends Component
 	render()
 	{
 		return (
-				<div>
+				<div className='row'>{/* Given that 'class' is already used in React, for CSS we have to use 'className' */}
 
-					<input
-						onChange={ this.handleChange }
-						placeholder={ this.state.placeHolder }
-					/>
+					<div className="col-md-8">{/* In Bootstrap everything is out of 12, so here we say you're a column of 8/12 */}
+
+						<input
+							onChange={ this.handleChange }
+							placeholder={ this.state.placeHolder }
+							type='text'
+							className='form-control input-lg'
+						/>
+
+					</div>
 
 				</div>
 		)

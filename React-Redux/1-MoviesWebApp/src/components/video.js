@@ -5,9 +5,9 @@ import datas from '../../sensibleInformations'
 const Video = ( { videoID } ) =>
 {
 	return(
-		<div>
+		<div className='embed-responsive embed-responsive-16by9'>
 
-			<iframe src={ `${datas.YOUTUBE_BASE_URL}${videoID}` } />
+			<iframe className='embed-responsive-item' src={ `${datas.YOUTUBE_BASE_URL}${videoID}` } />
 
 		</div>
 	);

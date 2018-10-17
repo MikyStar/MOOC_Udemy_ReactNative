@@ -5,6 +5,7 @@ import SearchBar from '../components/search-bar'
 import VideoList from '../containers/video-list'
 import datas from '../../sensibleInformations'
 import VideoDetail from '../components/video-detail'
+import Video from '../components/video'
 
 class App extends React.Component
 {
@@ -66,6 +67,8 @@ class App extends React.Component
 		return (
 			<div>
 				<SearchBar />
+
+				<Video videoID={ this.state.currentMovie.videoID } />
 
 				{ renderVideoList() }
 

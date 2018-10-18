@@ -57,7 +57,7 @@ export function getMortality( country )
 						{
 							country : country,
 							male : responseMale.data.mortality_distribution,
-							demale : responseFemale.data.mortality_distribution
+							female : responseFemale.data.mortality_distribution
 						}
 					})
 				})

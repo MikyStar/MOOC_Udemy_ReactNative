@@ -14,9 +14,11 @@ export function getCountries()
 {
 	return function ( dispatch )
 	{
-		axios.get( urlManager.POPULATION_COUNTRIES ).then(
+		axios( urlManager.POPULATION_COUNTRIES ).then(
 		( response ) =>
 		{
+			console.log( 'response', response.data.countries );
+
 			dispatch(
 			{
 				type : GET_COUNTRIES,

@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>React Redux ca marche</div>
-    );
-  }
+import SearchBar from '../containers/search-bar'
+
+export default class App extends Component
+{
+	render()
+	{
+		return (
+			<div>
+
+				<SearchBar />
+
+			</div>
+		);
+	}
 }

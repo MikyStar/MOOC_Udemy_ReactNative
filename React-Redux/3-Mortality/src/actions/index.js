@@ -18,8 +18,6 @@ export function getCountries()
 		axios( urlManager.getCountryList() ).then(
 		( response ) =>
 		{
-			console.log( 'response', response.data.countries );
-
 			dispatch(
 			{
 				type : GET_COUNTRIES,
@@ -47,9 +45,6 @@ export function getMortality( country )
 				axios( urlManager.getMortality( country, 'female' ) ).then(
 				( responseFemale ) =>
 				{
-					console.log('male', responseMale);
-					console.log('female', responseFemale);
-
 					dispatch(
 					{
 						type : GET_MORTALITY,

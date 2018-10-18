@@ -7,14 +7,19 @@ import { getMortality } from '../actions/index';
 
 class MortalityList extends Component
 {
+	componentWillMount = () =>
+	{
+		this.props.getMortality( this.props.defaultCountry )
+	}
+
 	renderMortalities()
 	{
 		const { mortalities } = this.props;
 
 		return mortalities.map( data =>
 		{
-			return <MortalityListItem key={ data.country } mortality={ data } />
-		})
+			return <MortalityListItem key={data.country} mortality={data} />
+		} )
 	}
 
 	render()
@@ -38,7 +43,7 @@ class MortalityList extends Component
 
 					<tbody>
 
-						{ this.renderMortalities() }
+						{this.renderMortalities()}
 
 					</tbody>
 
@@ -56,4 +61,9 @@ const mapStateToProps = ( state ) =>
 	}
 }
 
-export default connect( mapStateToProps )( MortalityList );
+const mapDispatchToProps = ( dispatch ) =>
+{
+	return bindActionCreators( { getMortality }, dispatch );
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )( MortalityList );

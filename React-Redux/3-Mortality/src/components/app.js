@@ -14,7 +14,7 @@ export default class App extends Component
 
 				<SearchBar defaultCountry={ DEFAULT_COUNTRY } />
 
-				<MortalityList />
+				<MortalityList defaultCountry={DEFAULT_COUNTRY} />
 
 			</div>
 		);

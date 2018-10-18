@@ -6,21 +6,38 @@ import Flag from './flag';
 
 ReactChartkick.addAdapter( Chart );
 
+const xTitle = 'Age';
+const yTitle = '% de mortalité';
+
 const MortalityListItem = () =>
 {
 	return(
-		<div>
+		<tr>
 
-			<Flag
-				country={ 'France' }
-				className={ 'flag_medium' }
-			/>
+			<td>
+				<Flag
+					country={ 'France' }
+					className={ 'flag_medium' }
+				/>
+			</td>
 
-			<ColumnChart
-				data={ [ ['12', 13], [14, 10], [17, 16], [28, 10] ] }
-			/>
+			<td className='col-md-6'>
+				<ColumnChart
+					data={ [ ['12', 13], [14, 10], [17, 16], [28, 10] ] }
+					xtitle={ xTitle }
+					ytitle={ yTitle }
+				/>
+			</td>
 
-		</div>
+			<td className='col-md-6'>
+				<ColumnChart
+					data={ [ ['12', 13], [14, 10], [17, 16], [28, 10] ] }
+					xtitle={ xTitle }
+					ytitle={ yTitle }
+				/>
+			</td>
+
+		</tr>
 	);
 }
 

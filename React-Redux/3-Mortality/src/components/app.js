@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import SearchBar from '../containers/search-bar'
 
+const DEFAULT_COUNTRY = 'France';
+
 export default class App extends Component
 {
 	render()
@@ -9,7 +11,7 @@ export default class App extends Component
 		return (
 			<div>
 
-				<SearchBar />
+				<SearchBar defaultCountry={ DEFAULT_COUNTRY } />
 
 			</div>
 		);

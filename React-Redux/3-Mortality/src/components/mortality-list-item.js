@@ -9,21 +9,24 @@ ReactChartkick.addAdapter( Chart );
 const xTitle = 'Age';
 const yTitle = '% de mortalité';
 
-const MortalityListItem = () =>
+const MortalityListItem = ( { mortality } ) =>
 {
+	const formatedDataMale = formatMortalityData( mortality.male )
+	const formatedDataFemale = formatMortalityData( mortality.female )
+
 	return(
 		<tr>
 
 			<td>
 				<Flag
-					country={ 'France' }
+					country={ mortality.country }
 					className={ 'flag_medium' }
 				/>
 			</td>
 
 			<td className='col-md-6'>
 				<ColumnChart
-					data={ [ ['12', 13], [14, 10], [17, 16], [28, 10] ] }
+					data={ formatedDataMale }
 					xtitle={ xTitle }
 					ytitle={ yTitle }
 				/>
@@ -31,7 +34,7 @@ const MortalityListItem = () =>
 
 			<td className='col-md-6'>
 				<ColumnChart
-					data={ [ ['12', 13], [14, 10], [17, 16], [28, 10] ] }
+					data={formatedDataFemale }
 					xtitle={ xTitle }
 					ytitle={ yTitle }
 				/>
@@ -39,6 +42,24 @@ const MortalityListItem = () =>
 
 		</tr>
 	);
+}
+
+const formatMortalityData = ( mortality ) =>
+{
+	const filteredData = mortality.filter( data =>
+	{
+		if( data.age >= 101 )
+			return false
+		else
+			return data
+	});
+
+	const array = filteredData.map( data =>
+	{
+		return [ `${data.age}`, data.mortality_percent ]
+	})
+
+	return array;
 }
 
 export default MortalityListItem;

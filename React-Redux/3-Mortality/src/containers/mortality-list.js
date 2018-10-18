@@ -13,7 +13,7 @@ class MortalityList extends Component
 
 		return mortalities.map( data =>
 		{
-			return <MortalityListItem key={ data.country }/>
+			return <MortalityListItem key={ data.country } mortality={ data } />
 		})
 	}
 

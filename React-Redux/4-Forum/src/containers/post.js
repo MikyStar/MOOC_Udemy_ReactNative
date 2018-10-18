@@ -9,6 +9,8 @@ class Post extends Component
 		return (
 			<div>
 
+				Post numéro : { this.props.params.id }
+
 				<PostContent />
 
 			</div>

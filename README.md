@@ -40,6 +40,10 @@ You never directly use a reducer, you pass by a trigger who will call by itself 
 
 To trigger something on the global attribute state through reducers we will use _action creators_. Whenever an action creator is triggered, all reducers will be called once. To make sure only wanted reducers will do something, we pass an action type value and we switch case on it.
 
+## Routes using React-Router
+
+Every routes created using react-router are faked : They are not real URL taking a specific page, the URL is just a way to make React know which page to render.
+
 ## Difference container - component
 
 A container is a component that needs to know changes inside states.

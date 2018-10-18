@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { getCountries } from '../actions/index'
-import { th } from 'redux-thunk';
+import { getCountries, getMortality } from '../actions/index'
 
 class SearchBar extends Component
 {
@@ -49,7 +48,10 @@ class SearchBar extends Component
 
 	search( event )
 	{
-		this.setState( { selectedCountry : event.target.value } )
+		this.setState( { selectedCountry : event.target.value }, () =>
+		{
+			this.props.getMortality( this.state.selectedCountry );
+		})
 	}
 
 	render()
@@ -73,7 +75,7 @@ const mapStateToProps = ( state ) =>
 
 const mapDispatchToProps = ( dispatch ) =>
 {
-	return bindActionCreators( { getCountries }, dispatch ) // { getCountries } = { getCountries : getCountries }
+	return bindActionCreators( { getCountries, getMortality }, dispatch ) // { getCountries } = { getCountries : getCountries }
 }
 
 export default connect( mapStateToProps, mapDispatchToProps )( SearchBar );

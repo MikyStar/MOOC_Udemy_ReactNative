@@ -4,6 +4,7 @@ import urlManager from '../assets/urlManager'
 
 export const GET_COUNTRIES = "GET_COUNTRIES"
 export const ERROR_GET_COUNTRIES = "ERROR_GET_COUNTRIES"
+export const GET_MORTALITY = "GET_MORTALITY"
 
 /**
  * Redux is not able to handle asynchronous.
@@ -14,7 +15,7 @@ export function getCountries()
 {
 	return function ( dispatch )
 	{
-		axios( urlManager.POPULATION_COUNTRIES ).then(
+		axios( urlManager.getCountryList() ).then(
 		( response ) =>
 		{
 			console.log( 'response', response.data.countries );
@@ -33,5 +34,34 @@ export function getCountries()
 				error : error.response.data.detail
 			});
 		})
+	}
+}
+
+export function getMortality( country )
+{
+	return function ( dispatch )
+	{
+		return axios( urlManager.getMortality(country, 'male') ).then(
+			( responseMale ) =>
+			{
+				axios( urlManager.getMortality( country, 'female' ) ).then(
+				( responseFemale ) =>
+				{
+					console.log('male', responseMale);
+					console.log('female', responseFemale);
+
+					dispatch(
+					{
+						type : GET_MORTALITY,
+						payload :
+						{
+							country : country,
+							male : responseMale.data.mortality_distribution,
+							demale : responseFemale.data.mortality_distribution
+						}
+					})
+				})
+			}
+		);
 	}
 }

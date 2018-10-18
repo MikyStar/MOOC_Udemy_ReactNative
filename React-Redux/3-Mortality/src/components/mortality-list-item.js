@@ -29,6 +29,7 @@ const MortalityListItem = ( { mortality } ) =>
 					data={ formatedDataMale }
 					xtitle={ xTitle }
 					ytitle={ yTitle }
+					max={ 30 }
 				/>
 			</td>
 
@@ -37,6 +38,7 @@ const MortalityListItem = ( { mortality } ) =>
 					data={formatedDataFemale }
 					xtitle={ xTitle }
 					ytitle={ yTitle }
+					max={ 30 }
 				/>
 			</td>
 
@@ -56,7 +58,7 @@ const formatMortalityData = ( mortality ) =>
 
 	const array = filteredData.map( data =>
 	{
-		return [ `${data.age}`, data.mortality_percent ]
+		return [ `${ Number(data.age).toFixed(0) }`, Number(data.mortality_percent).toFixed(0) ] // To remove decimals
 	})
 
 	return array;

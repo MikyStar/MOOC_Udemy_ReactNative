@@ -3,12 +3,26 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 import { readAllPosts } from '../actions/index';
+import PostListItem from '../components/post-list-item';
 
 class PostList extends Component
 {
 	componentWillMount()
 	{
 		this.props.readAllPosts();
+	}
+
+	renderPosts()
+	{
+		const { posts } = this.props;
+
+		if( posts )
+		{
+			return posts.map( post =>
+			{
+				return <PostListItem key={ post.id } post={ post }/>
+			})
+		}
 	}
 
 	render()
@@ -18,6 +32,25 @@ class PostList extends Component
 			<div>
 
 				<h1>Liste de posts</h1>
+
+				<table className='table table-hover'>
+
+					<thead>
+
+						<tr>
+							<th>Titre</th>
+							<th>Action</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						{ this.renderPosts() }
+
+					</tbody>
+
+				</table>
 
 			</div>
 		);

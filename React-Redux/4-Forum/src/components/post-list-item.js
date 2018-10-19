@@ -1,13 +1,18 @@
 import React from 'react'
 
-const PostListItem = () =>
+const PostListItem = ( props ) =>
 {
+	const { post } = props;
+
 	return (
-		<div>
+		<tr>
 
-			<p>Element de la liste</p>
+			<td>{ post.title }</td>
+			<td>
+				<button className='btn btn-danger '>Supprimer</button>
+			</td>
 
-		</div>
+		</tr>
 	)
 }
 

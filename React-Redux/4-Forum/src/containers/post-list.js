@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
-import { readAllPosts } from '../actions/index';
+import { readAllPosts, deletePost } from '../actions/index';
 import PostListItem from '../components/post-list-item';
 
 class PostList extends Component
@@ -20,14 +20,18 @@ class PostList extends Component
 		{
 			return posts.map( post =>
 			{
-				return <PostListItem key={ post.id } post={ post } deletePostCallBack={ (post) => this.deletePostCallBack(post)} />
+				return <PostListItem
+							key={ post.id }
+							post={ post }
+							deletePostCallBack={ ( post ) => this.deletePostCallBack( post ) }
+						/>
 			})
 		}
 	}
 
 	deletePostCallBack( post )
 	{
-		console.log( 'delete', post )
+		this.props.deletePost( post.id )
 	}
 
 	render()
@@ -69,7 +73,7 @@ const mapStateToProps = ( state ) =>
 
 const mapDispatchToProps = ( dispatch ) =>
 ({
-	...bindActionCreators( { readAllPosts }, dispatch )
+	...bindActionCreators( { readAllPosts, deletePost }, dispatch )
 })
 
 export default connect( mapStateToProps, mapDispatchToProps )( PostList );

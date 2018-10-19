@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, browserHistory } from 'react-router';
-import { reduxForm } from 'redux-form'
+import { reduxForm, getValues } from 'redux-form'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 
@@ -14,14 +14,16 @@ const formConfig =
 		'title',
 		'content',
 		'author'
-	]
+	],
+	validate : validate // linking the validate function from Redux-Form to my validate function. If there's erros, the form can't be submit
 }
 
 class PostForm extends Component
 {
 	render()
 	{
-		const { fields, handleSubmit } = this.props;
+		const { fields : { title, content, author }, handleSubmit, errors } = this.props; // handleSubmit from Redux-Form ; errors from validate()
+		console.log('errors', errors)
 
 		return (
 			<div>
@@ -30,27 +32,27 @@ class PostForm extends Component
 
 				<form onSubmit={ handleSubmit( this.createPost.bind(this) ) }>
 
-					<div className='form-group'>
+					<div className={ `form-group ${ title.touched && title.invalid ? 'has-danger' : ''}` }>
 
 						<label>Titre</label>
-						<input className='form-control' type='text' { ...fields.title }/>
-						<div></div>
+						<input className='form-control' type='text' { ...title }/>
+						<div>{ title.touched && errors.title }</div>
 
 					</div>
 
-					<div className='form-group'>
+					<div className={`form-group ${content.touched && content.invalid ? 'has-danger' : ''}`}>
 
 						<label>Description</label>
-						<input className='form-control' type='textarea' {  ...fields.content }/>
-						<div></div>
+						<input className='form-control' type='textarea' {  ...content }/>
+						<div>{ content.touched && errors.content }</div>
 
 					</div>
 
-					<div className='form-group'>
+					<div className={`form-group ${author.touched && author.invalid ? 'has-danger' : ''}`}>
 
 						<label>Auteur</label>
-						<input className='form-control' type='text' { ...fields.author }/>
-						<div></div>
+						<input className='form-control' type='text' { ...author }/>
+						<div>{ author.touched && errors.author }</div>
 
 					</div>
 
@@ -58,7 +60,13 @@ class PostForm extends Component
 						<button className='btn btn-danger'>Retour</button>
 					</Link>
 
-					<button type='submit' className='btn btn-primary'>Créer</button>
+					<button
+						type='submit'
+						className='btn btn-primary'
+						disabled={ this.props.invalid }//The invalid attribute come from Redux-Form and writing this make it disable if the form is not validated (has returned errors)
+					>
+						Créer
+					</button>
 
 				</form>
 
@@ -71,6 +79,22 @@ class PostForm extends Component
 		this.props.createPost( post )
 		browserHistory.push( '/' );
 	}
+}
+
+function validate( values )
+{
+	const errors = {};
+
+	if(!values.title)
+		errors.title = "Veuillez remplir le titre"
+
+	if(!values.content)
+		errors.content = "Veuillez remplir le contenu"
+
+	if(!values.author)
+		errors.author = "Veuillez remplir l'auteur"
+
+	return errors;
 }
 
 const mapDispatchToProps = ( dispatch ) =>

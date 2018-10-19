@@ -9,6 +9,12 @@ import PostListItem from '../components/post-list-item';
 
 class PostList extends Component
 {
+	constructor(props)
+	{
+		super(props)
+		this.state = { displayOnlyMines : false  }
+	}
+
 	componentWillMount()
 	{
 		this.props.readAllPosts();
@@ -17,10 +23,17 @@ class PostList extends Component
 	renderPosts()
 	{
 		const { posts } = this.props;
+		let arrayPosts;
+
+		if( this.state.displayOnlyMines )
+			arrayPosts = this.filterMyPosts( posts )
+		else
+			arrayPosts = posts;
+
 
 		if( posts )
 		{
-			return posts.map( post =>
+			return arrayPosts.map( post =>
 			{
 				return <PostListItem
 							key={ post.id }
@@ -36,6 +49,11 @@ class PostList extends Component
 		this.props.deletePost( post.id )
 	}
 
+	filterMyPosts( postList )
+	{
+		return postList.filter( post => { return ( post.author == 'moi' ) })
+	}
+
 	render()
 	{
 		console.log( this.props.posts )
@@ -43,6 +61,12 @@ class PostList extends Component
 			<div>
 
 				<h1>Liste de posts</h1>
+
+				<input
+					type='checkbox'
+					onChange={ ( e ) => this.setState( { displayOnlyMines : e.target.checked } ) }
+				/>
+				Afficher uniquement mes posts
 
 				<div className='button_add'>
 

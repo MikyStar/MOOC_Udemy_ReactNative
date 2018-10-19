@@ -15,7 +15,8 @@ const formConfig =
 		'content',
 		'author'
 	],
-	validate : validate // linking the validate function from Redux-Form to my validate function. If there's erros, the form can't be submit
+	validate : validate, // linking the validate function from Redux-Form to my validate function. If there's erros, the form can't be submit
+	initialValues : { author : 'moi' } // also from redux-form
 }
 
 class PostForm extends Component

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+import { Link } from 'react-router'
 
 import { readAllPosts, deletePost } from '../actions/index';
 import PostListItem from '../components/post-list-item';
@@ -42,6 +43,16 @@ class PostList extends Component
 			<div>
 
 				<h1>Liste de posts</h1>
+
+				<div className='button_add'>
+
+					<Link to={ 'create-post' }>
+
+						<button className='btn btn-primary btn-circle btn-lg'>+</button>
+
+					</Link>
+
+				</div>
 
 				<table className='table table-hover'>
 

@@ -20,9 +20,14 @@ class PostList extends Component
 		{
 			return posts.map( post =>
 			{
-				return <PostListItem key={ post.id } post={ post }/>
+				return <PostListItem key={ post.id } post={ post } deletePostCallBack={ (post) => this.deletePostCallBack(post)} />
 			})
 		}
+	}
+
+	deletePostCallBack( post )
+	{
+		console.log( 'delete', post )
 	}
 
 	render()

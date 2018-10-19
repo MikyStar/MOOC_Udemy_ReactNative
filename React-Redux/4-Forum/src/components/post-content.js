@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class PostContent extends Component
+const PostContent = ( { post } ) =>
 {
-	render()
-	{
-		return (
-			<div>
+	return(
+		<div>
 
-				<h1>Contenu d'un post</h1>
+			<h2>{ post.title }</h2>
+			<p>{ post.content }</p>
+			<p>Auteur :  { post.author }</p>
 
-			</div>
-		)
-	}
+		</div>
+	);
 }
 
 export default PostContent;

@@ -21,7 +21,7 @@ export function readAllPosts()
 	}
 }
 
-export function readPosts( id )
+export function readPost( id )
 {
 	return function ( dispatch )
 	{

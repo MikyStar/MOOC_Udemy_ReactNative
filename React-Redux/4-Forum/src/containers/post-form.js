@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { reduxForm } from 'redux-form'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
@@ -21,14 +21,14 @@ class PostForm extends Component
 {
 	render()
 	{
-		const { fields } = this.props;
+		const { fields, handleSubmit } = this.props;
 
 		return (
 			<div>
 
 				<h1>Nouveau post</h1>
 
-				<form>
+				<form onSubmit={ handleSubmit( this.createPost.bind(this) ) }>
 
 					<div className='form-group'>
 
@@ -65,6 +65,17 @@ class PostForm extends Component
 			</div>
 		)
 	}
+
+	createPost( post )
+	{
+		this.props.createPost( post )
+		browserHistory.push( '/' );
+	}
 }
 
-export default connect( null, null )(reduxForm( formConfig )( PostForm ))
+const mapDispatchToProps = ( dispatch ) =>
+({
+	...bindActionCreators( { createPost }, dispatch )
+})
+
+export default connect( null, mapDispatchToProps )(reduxForm( formConfig )( PostForm ));

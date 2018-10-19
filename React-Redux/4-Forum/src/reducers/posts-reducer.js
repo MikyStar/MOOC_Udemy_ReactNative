@@ -12,6 +12,9 @@ export default function reducerPost( state = [], action )
 			{
 				return !(post.id == action.payload) // Suppress the one that have the same id as the payload because we precised in the index of actions that for delete we will send the id through the payload
 			})
+
+		case ActionType_POST.CREATE :
+			return [ ...state, action.payload ]
 	}
 
 	return state;

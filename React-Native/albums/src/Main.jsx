@@ -18,7 +18,7 @@ export default class Main extends Component<Props>
 	render()
 	{
 		return (
-			<Header />
+			<Header text={ 'Albums' }/>
 		);
 	}
 }

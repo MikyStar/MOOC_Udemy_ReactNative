@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default Header = () =>
+export default Header = ( props ) =>
 {
 	const { textStyle, viewStyle } = styles;
 
 	return(
 			<View style={ viewStyle }>
-				<Text style={ textStyle }>Albums</Text>
+				<Text style={ textStyle }>{ props.text }</Text>
 			</View>
 		);
 };

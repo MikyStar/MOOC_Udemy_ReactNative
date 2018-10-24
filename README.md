@@ -147,6 +147,16 @@ State is immutable, the constructor is the only place where I can directly acces
 
 `Every time the state of a class is modified, the render function is called again`
 
+## Debugiing
+
+### If using react-native, so without Expo
+
+Just go on your simulator and make the React menu appear ( cmd + D on iOS). Then choose _Debug JS remotely_, a new tab will appear on your laptop where the developper tools will be link to your application.
+
+### Common
+
+Using the _debugger;_ tag on your code will create a breakpoint on your transpiled JS, enabling you to use the console to know what's this, inspect values, show console logs ...
+
 ## Deploy
 
 The app.json file is describing everything the Expo Store needs to know to deploy your App.

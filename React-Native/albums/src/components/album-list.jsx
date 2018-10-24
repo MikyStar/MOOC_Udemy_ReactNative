@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-export default AlbumList = () =>
+export default class AlbumList extends Component
 {
-	return(
-		<View>
-			<Text>AlbumList !!</Text>
-		</View>
-	)
+	render()
+	{
+		return (
+			<View>
+				<Text>AlbumList !!</Text>
+			</View>
+		)
+	}
 }

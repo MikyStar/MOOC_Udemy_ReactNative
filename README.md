@@ -1,6 +1,15 @@
 # MOOC_Udemy_ReactNative
 
-From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debutants/learn/v4/overview) on Udemy by Robin LEBHAR, but also his [React and Redux MOOC](https://www.udemy.com/react-redux-tutoriel-pour-debutants-en-francais/learn/v4/overview).
+From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debutants/learn/v4/overview) on Udemy by Robin LEBHAR, but also his [React and Redux MOOC](https://www.udemy.com/react-redux-tutoriel-pour-debutants-en-francais/learn/v4/overview) :
+- React-Redux/1-MovieWebApp
+- React-Redux/2-UserListRedux
+- React-Redux/3-Mortality
+- React-Redux/4-Forum
+- React-Native/SimpleTaskManager
+
+From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-native-and-redux-course/learn/v4/overview) on Udemy by Stephen Grider :
+
+- React-Native/albums
 
 # React-Redux
 
@@ -55,12 +64,14 @@ If the list in the state is updated, it's not the items that will display someth
 ## Notes
 
 - Every time a state change, the render function of the component get called. Even though, React is not doing all of the render method again, it just changes what has changed making without changing the rest of what's rendered.
+- For usual errors check [this link](https://rallycoding.com/blog/troubleshooting-react-native-startup/).
 
 # ReactNative
 
 ## Requirements
 
 - NodeJS
+- React-Native-CLI
 
 ## Requirements
 
@@ -74,6 +85,11 @@ If the list in the state is updated, it's not the items that will display someth
 ```sh
 create-react-native-app <name of the project>
 cd <name of the project>
+
+# OR the much more complicated version :
+
+react-native init <name of the project> # This will make you an old style project with iOS and Android code base separated
+cd <name of the project>
 ```
 
 ## Visualizing the app
@@ -84,6 +100,12 @@ expo start # For the Expo App
 expo start --ios # For the iOS emulator
 
 expo start --android # For the Android Emulator
+
+# OR if the project wa initiated with "react-native init"
+
+react-native run-ios
+
+react-native run-android
 ```
 
 > If you run through the Expo App on your phone :

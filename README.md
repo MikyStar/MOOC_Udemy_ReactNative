@@ -83,12 +83,12 @@ If the list in the state is updated, it's not the items that will display someth
 `NodeJS required`
 
 ```sh
-create-react-native-app <name of the project>
+create-react-native-app <name of the project> # Project bootstaped with Expo framework, much simpler
 cd <name of the project>
 
 # OR the much more complicated version :
 
-react-native init <name of the project> # This will make you an old style project with iOS and Android code base separated
+react-native init <name of the project> # Pure React-Native project with iOS and Android code base separated
 cd <name of the project>
 ```
 

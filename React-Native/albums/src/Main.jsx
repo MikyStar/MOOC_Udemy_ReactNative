@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Platform, Text, View } from 'react-native';
 
 import Header from './components/header';
+import AlbumList from './components/album-list';
 
 const instructions = Platform.select(
 {
@@ -16,7 +17,12 @@ export default class Main extends Component
 	render()
 	{
 		return (
-			<Header text={ 'Albums' }/>
+			<View>
+
+				<Header text={ 'Albums' }/>
+				<AlbumList />
+				
+			</View>
 		);
 	}
 }

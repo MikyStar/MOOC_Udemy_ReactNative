@@ -175,6 +175,12 @@ expo build:android # -> .apk
 - Check your smatphone running Expo is on the same WiFi has your computer
 - Check neither of your devices are running a VPN
 
+### No bundle URL present (without using Expo)
+
+- Remove the build folder of iOS if trying on iOS
+- Try npm install again
+- Try killing and making again react-native run-ios
+
 ## Notes
 
 - I'm using a OnePlus 6 for this tutorial which is an Android smartphone with a Notch ; While not applying CSS to my component, the natural behaviour is that the text of the component for instance is at the top of the screen. `The Notch is covering up some part of the text !`

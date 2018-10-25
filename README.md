@@ -169,6 +169,10 @@ expo build:ios # -> .ipa
 expo build:android # -> .apk
 ```
 
+## Openning an other application
+
+If you want your app to open an other application, you'll need to use the [Linking library](https://facebook.github.io/react-native/docs/linking).
+
 ## Commun problems
 
 ### Error: Cannot add a child that doesn't have a YogaNode to a parent without a measure function!

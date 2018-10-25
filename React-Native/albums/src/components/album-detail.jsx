@@ -38,7 +38,7 @@ export default AlbumDetail = ( { album } ) =>
 			</CardSection>
 
 			<CardSection>
-				<Button />
+				<Button whenPressed={ () => console.log(title) } />
 			</CardSection>
 
 		</Card>

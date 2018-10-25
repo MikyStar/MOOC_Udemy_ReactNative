@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-export default Button = ( { whenPressed } ) =>
+export default Button = ( { whenPressed, children } ) =>
 {
 	const { buttonStyle, textStyle } = styles;
 
@@ -11,7 +11,7 @@ export default Button = ( { whenPressed } ) =>
 			onPress={ whenPressed }
 		>
 
-			<Text style={ textStyle }>Click !</Text>
+			<Text style={ textStyle }>{ children }</Text>
 
 		</TouchableOpacity>
 	)

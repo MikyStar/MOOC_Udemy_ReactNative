@@ -38,7 +38,7 @@ export default AlbumDetail = ( { album } ) =>
 			</CardSection>
 
 			<CardSection>
-				<Button whenPressed={ () => Linking.openURL( url ) } />
+				<Button whenPressed={ () => Linking.openURL( url ) }>Buy now</Button>{/* We could have done it by props but it was just to try this way out */}
 			</CardSection>
 
 		</Card>

@@ -5,7 +5,11 @@ export default class AlbumList extends Component
 {
 	componentWillMount()
 	{
-		console.log("yup")
+		fetch( 'https://rallycoding.herokuapp.com/api/music_albums' ).then(
+			( response ) => response.json()
+		).then(
+			( responseData ) => console.log( responseData )
+		);
 	}
 
 	render()

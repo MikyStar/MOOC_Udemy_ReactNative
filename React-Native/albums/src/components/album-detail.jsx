@@ -3,6 +3,7 @@ import { View, Text, Image } from 'react-native';
 
 import Card from './card'
 import CardSection from './cars-section';
+import Button from './button';
 
 export default AlbumDetail = ( { album } ) =>
 {
@@ -10,8 +11,8 @@ export default AlbumDetail = ( { album } ) =>
 
 	return (
 		<Card>
-			<CardSection>
 
+			<CardSection>
 				<View style={ styles.thumbnailContainerStyle }>
 
 					<Image
@@ -27,17 +28,19 @@ export default AlbumDetail = ( { album } ) =>
 					<Text>{ artist }</Text>
 
 				</View>
-
 			</CardSection>
 
 			<CardSection>
-
 				<Image
 					source={ { uri : image } }
 					style={ styles.imageStyle }
 				/>
-
 			</CardSection>
+
+			<CardSection>
+				<Button />
+			</CardSection>
+
 		</Card>
 	);
 };

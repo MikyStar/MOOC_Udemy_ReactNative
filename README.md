@@ -191,6 +191,11 @@ expo build:android # -> .apk
 - Try npm install again
 - Try killing and making again react-native run-ios
 
+## Cannot read property createElement of undefined
+
+- Check if you have { } surrounding React import
+- Check all your imports if they are default or not, you may not use { } every time
+
 ## Notes
 
 - I'm using a OnePlus 6 for this tutorial which is an Android smartphone with a Notch ; While not applying CSS to my component, the natural behaviour is that the text of the component for instance is at the top of the screen. `The Notch is covering up some part of the text !`

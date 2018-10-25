@@ -29,6 +29,6 @@ export default class Main extends Component
 
 /*
 ! This is because this view is the Root View of the app and it contains a ScrollView
-! Saying flex : 1 means, I want this View to take the all screen
+! Saying flex : 1 means, I want this View to take as much space as possible
 ! We could have done this like usual with a const difined below but it was just for this attribute so we don't care
 */

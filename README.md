@@ -10,6 +10,7 @@ From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debuta
 From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-native-and-redux-course/learn/v4/overview) on Udemy by Stephen Grider :
 
 - React-Native/albums
+- React-Native/auth
 
 # React-Redux
 
@@ -199,6 +200,16 @@ If you want your app to open an other application, you'll need to use the [Linki
 
 - Check if you have { } surrounding React import
 - Check all your imports if they are default or not, you may not use { } every time
+
+## Running on Android
+
+### SDK not found
+
+- Create ./android/local.properties and put sdk.dir = /Users/`your name`/Library/Android/sdk
+
+### Could not find support-vector-drawable.aar
+
+- To your build.gradle, put google at the first position of the repositories
 
 ## Notes
 

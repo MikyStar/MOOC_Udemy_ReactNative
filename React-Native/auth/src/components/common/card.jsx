@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-export default Card = ( props ) =>
+const Card = ( props ) =>
 (
 	<View style={ styles.containerStyle }>
 		{ props.children }{/* This is how you put component passed by wrapping between tags like for View or Text */}
@@ -30,3 +30,5 @@ const styles =
 		marginTop : 10
 	}
 };
+
+export { Card };

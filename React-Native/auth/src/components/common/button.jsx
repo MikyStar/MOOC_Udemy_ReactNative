@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-export default Button = ( { whenPressed, children } ) =>
+const Button = ( { whenPressed, children } ) =>
 {
 	const { buttonStyle, textStyle } = styles;
 
@@ -40,3 +40,5 @@ const styles =
 		marginRight : 5,
 	}
 }
+
+export { Button };

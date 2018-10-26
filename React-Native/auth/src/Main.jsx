@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
-import { Text,View } from 'react-native';
+import { View } from 'react-native';
+import Firebase from 'firebase';
 
-import { Header } from './components/common'
+import sensibleInformations from './assets/sensibleInformations'
+import { Header } from './components/common';
+import LoginForm from './components/login-form';
 
 export default class Main extends Component
 {
+	componentWillMount()
+	{
+		Firebase.initializeApp( sensibleInformations.firebase )
+	}
+
 	render()
 	{
-		return(
+		return (
 			<View>
-				<Header text={ 'Authentification' } />
-				<Text>Hey</Text>
+				<Header text={'Authentification'} />
+				<LoginForm />
 			</View>
 		);
 	}

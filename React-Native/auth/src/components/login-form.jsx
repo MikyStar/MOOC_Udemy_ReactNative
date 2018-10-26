@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { TextInput } from 'react-native';
 
-import { Card, CardSection, Button} from './common';
+import { Card, CardSection, Button, Input} from './common';
 
 export default class LoginForm extends Component
 {
@@ -16,8 +15,8 @@ export default class LoginForm extends Component
 					{/* Just like the Image tag, TextInput by default has no height and width
 						We also have to pass by the value attribute because RN is a bit strange with TextInpit
 						and the TextInput never know what value it has*/}
-					<TextInput
-						style={ { height : 20, width : 100 } }
+					<Input
+						label={ 'Email' }
 						value={ this.state.text }
 						onChangeText={ text => this.setState( { text }) }
 					/>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Firebase from 'firebase';
 import { Text } from 'react-native';
 
-import { Card, CardSection, Button, Input} from './common';
+import { Card, CardSection, Button, Input, Spinner } from './common';
 
 export default class LoginForm extends Component
 {
@@ -10,7 +10,8 @@ export default class LoginForm extends Component
 	{
 		email : '',
 		password : '',
-		error : ''
+		error : '',
+		loading : false
 	};
 
 	/**
@@ -21,19 +22,58 @@ export default class LoginForm extends Component
 	{
 		const { email, password } = this.state;
 
-		this.setState( { error : '' } ); // To make sure that if the user fails then succeed the error will be removed
+		this.setState(
+		{
+			error : '',
+			loading : true
+		}); // To make sure that if the user fails then succeed the error will be removed
 
 		Firebase.auth().signInWithEmailAndPassword( email, password )
-		.catch(
-		() =>
+		.then( this.onLoginSuccess.bind( this ) )
+		.catch( () =>
 		{
 			Firebase.auth().createUserWithEmailAndPassword( email, password )
-			.catch(
-			() =>
-			{
-				this.setState( { error : 'Authentification failed' } );
-			});
+			.then( this.onLoginSuccess.bind( this ) )
+			.catch( this.onLoginFail.bind( this ) );
 		});
+	}
+
+	onLoginFail()
+	{
+		this.setState(
+		{
+			error: 'Authentification failed',
+			loading: false
+		});
+	}
+
+	onLoginSuccess()
+	{
+		this.setState(
+		{
+			email : '',
+			password : '',
+			loading : false,
+			error : ''
+		});
+	}
+
+	renderButton()
+	{
+		if( this.state.loading )
+		{
+			return <Spinner size='small' />
+		}
+		else
+		{
+			return (
+				<Button
+					whenPressed={this.sumbitLogin.bind( this )}
+				>
+					Login
+					</Button>
+			);
+		}
 	}
 
 	render()
@@ -70,11 +110,7 @@ export default class LoginForm extends Component
 
 				<CardSection>
 
-					<Button
-						whenPressed={ this.sumbitLogin.bind( this ) }
-					>
-						Login
-					</Button>
+					{ this.renderButton() }
 
 				</CardSection>
 			</Card>

@@ -214,3 +214,7 @@ If you want your app to open an other application, you'll need to use the [Linki
 ## Notes
 
 - I'm using a OnePlus 6 for this tutorial which is an Android smartphone with a Notch ; While not applying CSS to my component, the natural behaviour is that the text of the component for instance is at the top of the screen. `The Notch is covering up some part of the text !`
+
+# Global tips
+
+- Whenever you have someting that will basically change the UI, think about the state, because whenever the state of a component changes, the render method associated will be called 

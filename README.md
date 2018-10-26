@@ -11,6 +11,7 @@ From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-
 
 - React-Native/albums
 - React-Native/auth
+- React-Native/TechStackRedux
 
 # React-Redux
 
@@ -217,4 +218,4 @@ If you want your app to open an other application, you'll need to use the [Linki
 
 # Global tips
 
-- Whenever you have someting that will basically change the UI, think about the state, because whenever the state of a component changes, the render method associated will be called 
+- Whenever you have someting that will basically change the UI, think about the state, because whenever the state of a component changes, the render method associated will be called

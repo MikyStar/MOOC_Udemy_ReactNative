@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Firebase from 'firebase';
+import { Text } from 'react-native';
 
 import { Card, CardSection, Button, Input} from './common';
 
@@ -7,8 +9,30 @@ export default class LoginForm extends Component
 	state =
 	{
 		email : '',
-		password : ''
+		password : '',
+		error : ''
 	};
+
+	/**
+	 * Here, the only way we get an error is if a known email doesn't put the right password.
+	 * Otherwise if it's a new email, il's gonna create a new account
+	 */
+	sumbitLogin()
+	{
+		const { email, password } = this.state;
+
+		Firebase.auth().signInWithEmailAndPassword( email, password )
+		.catch(
+		() =>
+		{
+			Firebase.auth().createUserWithEmailAndPassword( email, password )
+			.catch(
+			() =>
+			{
+				this.setState( { error : 'Authentification failed' } );
+			});
+		});
+	}
 
 	render()
 	{
@@ -40,12 +64,28 @@ export default class LoginForm extends Component
 
 				</CardSection>
 
+				<Text style={ styles.errorText }>{ this.state.error }</Text>
+
 				<CardSection>
 
-					<Button>Login</Button>
+					<Button
+						whenPressed={ this.sumbitLogin.bind( this ) }
+					>
+						Login
+					</Button>
 
 				</CardSection>
 			</Card>
 		);
+	}
+}
+
+const styles =
+{
+	errorText :
+	{
+		fontSize : 20,
+		alignSelf : 'center',
+		color : 'red'
 	}
 }

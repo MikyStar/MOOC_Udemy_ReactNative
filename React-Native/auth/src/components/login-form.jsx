@@ -4,7 +4,7 @@ import { Card, CardSection, Button, Input} from './common';
 
 export default class LoginForm extends Component
 {
-	state = { text : '' };
+	state = { email : '' };
 
 	render()
 	{
@@ -17,8 +17,9 @@ export default class LoginForm extends Component
 						and the TextInput never know what value it has*/}
 					<Input
 						label={ 'Email' }
-						value={ this.state.text }
-						onChangeText={ text => this.setState( { text }) }
+						value={ this.state.email }
+						onChangeText={ email => this.setState( { email }) }
+						placeholder={ 'user@gmail.com' }
 					/>
 
 				</CardSection>

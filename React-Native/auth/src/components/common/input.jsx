@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const Input = ( { label, value, onChangeText } ) =>
+const Input = ( { label, value, onChangeText, placeholder } ) =>
 {
 	const { inputStyle, labelStyle, containerStyle } = styles;
 
@@ -12,8 +12,9 @@ const Input = ( { label, value, onChangeText } ) =>
 			<TextInput
 				value={ value }
 				onChangeText={ onChangeText }
-				style={{ height: 20, width: 100 }}
 				style={ inputStyle }
+				autoCorrect={ false }
+				placeholder={ placeholder }
 			/>
 		</View>
 	);
@@ -28,7 +29,9 @@ const styles =
 		paddingLeft : 5,
 		fontSize : 18,
 		lineHeight : 23,
-		flex : 2 // It's like weights in Android : Given that the labelStyle also have a flex of 1, it's mean that the View that contains inputStyle and labelStyle will have a total division of space by 3 and the inputStyle is going to take 2/3 of this place
+		flex : 2, // It's like weights in Android : Given that the labelStyle also have a flex of 1, it's mean that the View that contains inputStyle and labelStyle will have a total division of space by 3 and the inputStyle is going to take 2/3 of this place
+		height: 20,
+		width: 100
 	},
 	labelStyle :
 	{

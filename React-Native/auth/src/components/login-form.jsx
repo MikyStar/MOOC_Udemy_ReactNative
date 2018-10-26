@@ -21,6 +21,8 @@ export default class LoginForm extends Component
 	{
 		const { email, password } = this.state;
 
+		this.setState( { error : '' } ); // To make sure that if the user fails then succeed the error will be removed
+
 		Firebase.auth().signInWithEmailAndPassword( email, password )
 		.catch(
 		() =>

@@ -9,9 +9,9 @@ class ListItem extends Component
 {
 	renderDescription()
 	{
-		const { library, selectedLibraryID } = this.props;
+		const { library, expanded } = this.props;
 
-		if( library.item.id === selectedLibraryID)
+		if( expanded )
 		{
 			return (
 				<Text>{ library.item.description }</Text>
@@ -50,11 +50,17 @@ const styles =
 	}
 }
 
-const mapStateToProps = state =>
+/**
+ *	@description This function is actually quite the place to handle all the logic behind of the component. It's here that we are going to pre-process all the work that should be done to only little functions. Because, at the end, we don't want to just redescribe props, we want to get informations out of it by some process, so if I just handle in this function the actual process, I can just send the answer inside the props
+ *
+ * @param { JSON } state Will be the state of the application from the Redux Store
+ * @param { JSON } ownProps Will be a refereance to the very own props of the component
+ */
+const mapStateToProps = (state, ownProps) =>
 {
-	return {
-		selectedLibraryID : state.selectedLibraryID
-	}
+	const expanded = state.selectedLibraryID === ownProps.library.item.id;
+
+	return { expanded };
 }
 
 /*

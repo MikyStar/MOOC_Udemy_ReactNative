@@ -13,7 +13,7 @@ export default class Main extends Component
 	{
 		return(
 			<Provider store={ createStore( reducers ) } >
-				<View>
+				<View style={ { flex : 1 } }>
 
 					<Header text='Tech Stack' />
 

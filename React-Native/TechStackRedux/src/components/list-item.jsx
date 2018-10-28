@@ -7,11 +7,21 @@ class ListItem extends Component
 {
 	render()
 	{
+		const { title } = styles;
 		return(
 			<CardSection>
-				<Text>{ this.props.library.item.title }</Text>
+				<Text style={ title }>{ this.props.library.item.title }</Text>
 			</CardSection>
 		);
+	}
+}
+
+const styles =
+{
+	title :
+	{
+		fontSize : 18,
+		paddingLeft : 15
 	}
 }
 

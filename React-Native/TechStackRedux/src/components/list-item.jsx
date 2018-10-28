@@ -7,6 +7,18 @@ import * as actions from '../actions'; // The * because I export with the word e
 
 class ListItem extends Component
 {
+	renderDescription()
+	{
+		const { library, selectedLibraryID } = this.props;
+
+		if( library.item.id === selectedLibraryID)
+		{
+			return (
+				<Text>{ library.item.description }</Text>
+			)
+		}
+	}
+
 	render()
 	{
 		const { title } = styles;
@@ -20,6 +32,8 @@ class ListItem extends Component
 					<CardSection>
 						<Text style={ title }>{ this.props.library.item.title }</Text>
 					</CardSection>
+
+					{  this.renderDescription() }
 
 				</View>
 			</TouchableWithoutFeedback>
@@ -36,8 +50,14 @@ const styles =
 	}
 }
 
+const mapStateToProps = state =>
+{
+	return {
+		selectedLibraryID : state.selectedLibraryID
+	}
+}
+
 /*
-	Using directly the spelling 'connect( null, actions )( ListItem );' because we have no mapStateToProps needed
-	is because that way, we are rewiring the 'actions' to redux but also we map 'actions' to props of this component
+	Using directly the spelling 'actions' in 'connect( null, actions )( ListItem );' is to we map 'actions' to props of this component ; Just like mapStateToProps we can access things within props
 */
-export default connect( null, actions )( ListItem );
+export default connect( mapStateToProps, actions )( ListItem );

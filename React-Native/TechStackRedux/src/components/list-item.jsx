@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Text, TouchableWithoutFeedback, View, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
 
 import { CardSection } from './common';
@@ -7,6 +7,17 @@ import * as actions from '../actions'; // The * because I export with the word e
 
 class ListItem extends Component
 {
+	/**
+	 * @description This phase is called just at the call of the render method only if it says that something should be re-rendered before everything gets directly to the screen -> so the very last moment
+	 */
+	componentWillUpdate = () =>
+	{
+		/**
+		 * This is going to make mooth smmothly everything that is going to be change because of the render method
+		 */
+		LayoutAnimation.spring();
+	}
+
 	renderDescription()
 	{
 		const { library, expanded } = this.props;
@@ -14,7 +25,9 @@ class ListItem extends Component
 		if( expanded )
 		{
 			return (
-				<Text>{ library.item.description }</Text>
+				<CardSection>
+					<Text style={ { flex : 1 } }>{ library.item.description }</Text>{/* flex : 1 enables the Text to be seen entirely on the screen no matter what so it's going to expand the View */}
+				</CardSection>
 			)
 		}
 	}

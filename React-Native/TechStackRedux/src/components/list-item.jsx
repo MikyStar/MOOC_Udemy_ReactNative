@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native';
+import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { CardSection } from './common';
@@ -11,12 +11,18 @@ class ListItem extends Component
 	{
 		const { title } = styles;
 
-		console.log(this.props);
-
 		return(
-			<CardSection>
-				<Text style={ title }>{ this.props.library.item.title }</Text>
-			</CardSection>
+			<TouchableWithoutFeedback
+				onPress={ () => this.props.selectLibrary( this.props.library.item.id ) }
+			>
+				<View>
+
+					<CardSection>
+						<Text style={ title }>{ this.props.library.item.title }</Text>
+					</CardSection>
+
+				</View>
+			</TouchableWithoutFeedback>
 		);
 	}
 }
@@ -30,9 +36,8 @@ const styles =
 	}
 }
 
-export default connect( null, actions )( ListItem );
-
 /*
 	Using directly the spelling 'connect( null, actions )( ListItem );' because we have no mapStateToProps needed
 	is because that way, we are rewiring the 'actions' to redux but also we map 'actions' to props of this component
 */
+export default connect( null, actions )( ListItem );

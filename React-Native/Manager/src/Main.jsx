@@ -19,7 +19,7 @@ export default class Main extends Component
 	{
 		return(
 			<Provider store={ createStore( reducers ) }>
-				<View>
+				<View style={ { marginTop : 100 } } >
 
 					<LoginForm />
 

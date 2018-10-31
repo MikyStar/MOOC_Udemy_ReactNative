@@ -7,9 +7,20 @@ export default ( state = INITIAL_STATE, action ) =>
 	switch( action.type )
 	{
 		case actionTypes.EMAIL_CHANGED :
-
+			return { ...state, email : action.payload };
 
 		default :
 			return state;
 	}
 }
+
+/*
+! With React, if the old state === the new state, then the component is not rendered again so with Redux, you have to be very careful when you modify the value of the state inside a reducer because in JavaScript, this will work :
+
+const state = {}
+const newState = state
+
+newStata.color = 'red'
+
+newState === state // This will work because state and newState are referencing the same object
+*/

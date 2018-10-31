@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import Firebase from 'firebase';
+import ReduxThunk from 'redux-thunk'
 
 import reducers from './reducers'
 import sensibleInformations from './assets/sensibleInformations'
@@ -17,8 +18,10 @@ export default class Main extends Component
 
 	render()
 	{
+		const store = createStore( reducers, {}, applyMiddleware( ReduxThunk ) ); // The {} argument is for initial state
+
 		return(
-			<Provider store={ createStore( reducers ) }>
+			<Provider store={ store }>
 				<View style={ { marginTop : 100 } } >
 
 					<LoginForm />

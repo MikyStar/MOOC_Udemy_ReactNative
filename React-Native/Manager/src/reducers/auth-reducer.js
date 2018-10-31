@@ -3,7 +3,8 @@ import actionTypes from '../actions/types'
 const INITIAL_STATE =
 {
 	email : '',
-	password : ''
+	password : '',
+	user : null
 }
 
 export default ( state = INITIAL_STATE, action ) =>
@@ -15,6 +16,9 @@ export default ( state = INITIAL_STATE, action ) =>
 
 		case actionTypes.PASSWORD_CHANGED :
 			return { ...state, password : action.payload }
+
+		case actionTypes.LOGIN_USER_SUCCESS :
+			return { ...state, user : action.payload }
 
 		default :
 			return state;

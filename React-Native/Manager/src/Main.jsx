@@ -6,6 +6,7 @@ import Firebase from 'firebase';
 
 import reducers from './reducers'
 import sensibleInformations from './assets/sensibleInformations'
+import LoginForm from './components/login-form';
 
 export default class Main extends Component
 {
@@ -20,7 +21,7 @@ export default class Main extends Component
 			<Provider store={ createStore( reducers ) }>
 				<View>
 
-					<Text>Hi !</Text>
+					<LoginForm />
 
 				</View>
 			</Provider>

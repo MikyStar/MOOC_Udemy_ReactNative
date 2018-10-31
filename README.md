@@ -12,6 +12,7 @@ From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-
 - React-Native/albums
 - React-Native/auth
 - React-Native/TechStackRedux
+- React-Native/Manager
 
 # React-Redux
 

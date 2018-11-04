@@ -8,6 +8,7 @@ import ReduxThunk from 'redux-thunk'
 import reducers from './reducers'
 import sensibleInformations from './assets/sensibleInformations'
 import LoginForm from './components/login-form';
+import RouterComponent from './router';
 
 export default class Main extends Component
 {
@@ -22,11 +23,9 @@ export default class Main extends Component
 
 		return(
 			<Provider store={ store }>
-				<View style={ { marginTop : 100 } } >
 
-					<LoginForm />
-
-				</View>
+				<RouterComponent />
+				
 			</Provider>
 		);
 	}

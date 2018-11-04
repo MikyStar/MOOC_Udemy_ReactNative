@@ -2,7 +2,6 @@ import Firebase from 'firebase';
 import { Actions } from 'react-native-router-flux'
 
 import actionTypes from './types'
-import routes from '../components/routes'
 
 export const emailChanged = text =>
 {
@@ -52,7 +51,7 @@ export const loginUser = ( { email, password } ) =>
 			payload : user
 		} );
 
-		routes.navigateTo(routes.name.Login)
+		Actions.employeeList();
 	}
 
 	function loginUserFail( dispatch )

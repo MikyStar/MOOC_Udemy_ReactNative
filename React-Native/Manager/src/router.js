@@ -12,14 +12,14 @@ const RouterComponent = () =>
 				<Scene key='root'>
 
 					<Scene
-						key={ routes.name.Login }
+						key={ routes.Login }
 						component={ LoginForm }
 						title='Please login ...'
 						initial
 					/>
 
 					<Scene
-						key={ routes.name.EmployeeList }
+						key={ routes.EmployeeList }
 						component={ EmployeeList }
 						title='Employees'
 					/>

@@ -1,14 +1,56 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
 
-export default class EmployeeCreate extends Component
+import { Card, CardSection, Input, Button } from './common'
+import { employeeUpdate } from '../actions/employee-actions';
+
+
+class EmployeeCreate extends Component
 {
 	render()
 	{
 		return 	(
-					<View>
-						<Text>Employee form</Text>
-					</View>
+					<Card>
+
+						<CardSection>
+
+							<Input
+								label='Name'
+								placeholder='Jane'
+								value={ this.props.name }
+								onChangeText={ value => this.props.employeeUpdate( { prop : 'name', value } ) }
+							/>
+
+						</CardSection>
+
+						<CardSection>
+
+							<Input
+								label='Phone'
+								placeholder='06 00 00 00 00'
+								value={ this.props.phone }
+								onChangeText={ value => this.props.employeeUpdate( { prop: 'phone', value } ) }
+							/>
+
+
+						</CardSection>
+
+						<CardSection>
+
+							<Button>Create</Button>
+
+						</CardSection>
+
+					</Card>
 				);
 	}
 }
+
+const mapStateToProps = state =>
+{
+	const { name, phone, shift } = state.employeeForm;
+
+	return { name, phone, shift };
+}
+
+export default connect( mapStateToProps, { employeeUpdate } )( EmployeeCreate );

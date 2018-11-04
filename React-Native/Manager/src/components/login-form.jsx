@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
 
-import { Card, CardSection, Input, Button } from './common';
+import { Card, CardSection, Input, Button, Spinner } from './common';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
 class LoginForm extends Component
@@ -34,6 +34,14 @@ class LoginForm extends Component
 						</View>
 					);
 		}
+	}
+
+	renderButton()
+	{
+		if( this.props.loading )
+			return <Spinner size='large'/>
+		else
+			return <Button whenPressed={ this.onButtonPress.bind( this ) }>Login</Button>
 	}
 
 	render()
@@ -68,9 +76,7 @@ class LoginForm extends Component
 
 				<CardSection>
 
-					<Button
-						whenPressed={ this.onButtonPress.bind( this ) }
-					>Login</Button>
+					{ this.renderButton() }
 
 				</CardSection>
 
@@ -94,7 +100,8 @@ const mapStateToProps = state =>
 	return 	{
 				email : state.auth.email,
 				password : state.auth.password,
-				error : state.auth.error
+				error : state.auth.error,
+				loading : state.auth.loading
 			};
 };
 

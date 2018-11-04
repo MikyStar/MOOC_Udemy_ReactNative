@@ -19,7 +19,7 @@ export default ( state = INITIAL_STATE, action ) =>
 			return { ...state, password : action.payload }
 
 		case actionTypes.LOGIN_USER_SUCCESS :
-			return { ...state, user : action.payload }
+			return { ...state, user : action.payload, error : '' }
 
 		case actionTypes.LOGIN_USER_FAIL :
 			return { ...state, error : 'Authentification failed', password : '' }

@@ -51,7 +51,7 @@ export const loginUser = ( { email, password } ) =>
 			payload : user
 		} );
 
-		Actions.employeeList();
+		Actions.main();
 	}
 
 	function loginUserFail( dispatch )

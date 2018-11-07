@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, ListView } from 'react-native'
+import { ListView } from 'react-native'
 import _ from 'lodash' // Yes the convention wants us to use _ which is a low dash, lodash, see ?
 
 import { employeesFetch } from '../actions/employee-actions';
+import EmployeeListItem from './employee-list-item';
 
 class EmployeeList extends Component
 {
@@ -33,13 +34,20 @@ class EmployeeList extends Component
 		this.dataSource = dataSource.cloneWithRows( employees );
 	}
 
+	renderRow( employee )
+	{
+		return <EmployeeListItem employee={ employee } />
+	}
+
 	render()
 	{
 		console.log( this.props)
 		return	(
-					<View>
-
-					</View>
+					<ListView
+						enableEmptySections
+						dataSource={ this.dataSource }
+						renderRow={ this.renderRow }
+					/>
 				);
 	}
 }

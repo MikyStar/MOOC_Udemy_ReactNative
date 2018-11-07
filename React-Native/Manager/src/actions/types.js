@@ -6,5 +6,6 @@ module.exports =
 	LOGIN_USER_FAIL : 'login_user_fail',
 	LOGIN_USER_START : 'login_user_start',
 
-	EMPLOYEE_UPDATE : 'employee_update'
+	EMPLOYEE_UPDATE : 'employee_update',
+	EMPLOYEE_CREATE : 'e'
 }

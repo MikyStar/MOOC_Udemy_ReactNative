@@ -7,5 +7,6 @@ module.exports =
 	LOGIN_USER_START : 'login_user_start',
 
 	EMPLOYEE_UPDATE : 'employee_update',
-	EMPLOYEE_CREATE : 'e'
+	EMPLOYEE_CREATE : 'e', //We don't care of the name
+	EMPLOYEES_FETCH_SUCCESS : 'f'
 }

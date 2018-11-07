@@ -43,3 +43,18 @@ export const employeeCreate = ( { name, phone, shift } ) =>
 			})
 	}
 };
+
+export const employeesFetch = () =>
+{
+	return ( dispatch ) =>
+	{
+		const { currentUser } = Firebase.auth();
+
+		// Whenever a new value is available on the Firebase server, we fetch it through 'snapshot' with the action
+		Firebase.database().ref( `/users/${ currentUser.uid }/employees`)
+			.on( 'value', snapshot =>
+			{
+				dispatch( { type : actionTypes.EMPLOYEES_FETCH_SUCCESS, payload : snapshot.val() })
+			});
+	}
+};

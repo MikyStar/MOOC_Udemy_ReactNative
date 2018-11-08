@@ -5,6 +5,7 @@ import routes from './components/routes'
 import LoginForm from './components/login-form';
 import EmployeeList from './components/employee-list';
 import EmployeeCreate from './components/employee-create';
+import EmployeeEdit from './components/employee-edit';
 
 const RouterComponent = () =>
 {
@@ -40,6 +41,12 @@ const RouterComponent = () =>
 							title='Create employee'
 							rightTitle='Add'
 							onRight={ () => { console.log('right') } }
+						/>
+
+						<Scene
+							key={ routes.EmployeeEdit }
+							component={ EmployeeEdit }
+							title='Edit employee ...'
 						/>
 
 					</Scene>

@@ -177,6 +177,10 @@ expo build:android # -> .apk
 
 If you want your app to open an other application, you'll need to use the [Linking library](https://facebook.github.io/react-native/docs/linking).
 
+## Animations
+
+Animations are not depending on the state of a component, that means that the render method is not called again with the animation.
+
 ## Commun problems
 
 ### Error: Cannot add a child that doesn't have a YogaNode to a parent without a measure function!

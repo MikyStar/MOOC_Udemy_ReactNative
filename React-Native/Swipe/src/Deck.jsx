@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { View, PanResponder } from 'react-native';
+import { View, PanResponder, Animated } from 'react-native';
 
 class Deck extends Component
 {
 	constructor( props )
 	{
 		super( props );
+
+		const position = new Animated.ValueXY();
 
 		const panResponder = PanResponder.create(
 		{
@@ -31,13 +33,14 @@ class Deck extends Component
 			onPanResponderMove : ( event, gesture ) =>
 			{
 				//debugger; // Makes the debugger opens up whenever this line is called + can access variable in the context in the console -> now I can really see the value of gesture
-				console.log(gesture)
+
+				position.setValue( { x : gesture.dx, y : gesture.dy } );
 			},
 
 			onPanResponderRelease : () => {}
 		});
 
-		this.state = { panResponder }
+		this.state = { panResponder, position }
 	}
 
 	renderCards()
@@ -46,9 +49,12 @@ class Deck extends Component
 	render()
 	{
 		return	(
-					<View { ...this.state.panResponder.panHandlers } >
+					<Animated.View
+						style={ this.state.position.getLayout() }
+						{ ...this.state.panResponder.panHandlers }
+					>
 						{ this.renderCards() }
-					</View>
+					</Animated.View>
 				);
 	}
 }

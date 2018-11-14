@@ -48,14 +48,22 @@ class Deck extends Component
 	 */
 	getCardStyle()
 	{
+		const { position } = this.state;
+
+		/**
+		 * Interpolation is binding the evolution of a value with an other
+		 * Here, inputRange and output range are evolving together for a given x position
+		 * It makes variables evolve together propotionnaly
+		 */
+		const rotate = position.x.interpolate(
+		{
+			inputRange : [ -500, 0, 500 ], // min, mid, max
+			outputRange: ['-120deg', '0deg', '120deg'] // min, mid, max
+		});
+
 		return 	{
-					...this.state.position.getLayout(),
-					transform :
-					[
-						{
-							rotate : '-45deg'
-						}
-					]
+					...position.getLayout(),
+					transform : [ { rotate } ]
 				};
 	}
 

@@ -22,6 +22,7 @@ class Main extends Component
 	{
 		return 	(
 					<Card
+						key={ item.id }
 						title={ item.text }
 						image={ { uri : item.uri } }
 					>

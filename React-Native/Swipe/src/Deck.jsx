@@ -22,10 +22,15 @@ class Deck extends Component
 			 * numbers in JSONs in console but if I expand those object, values are all set back to 0 because the
 			 * gesture object is only one object in memory, it's only possible to access those datas at the time they
 			 * are set, otherwise they will be crashed by the next value
+			 *
+			 * Gesture ( = the action between a click and a release ):
+			 * 'dx' and 'dy' -> Total distance moved by the finger in one gesture
+			 * 'vx' and 'vy' -> speed
+			 * 'numberActiveTouches' -> how many fingers
 			 */
 			onPanResponderMove : ( event, gesture ) =>
 			{
-				debugger; // Makes the debugger opens up whenever this line is called + can access variable in the context in the console -> now I can really see the value of gesture
+				//debugger; // Makes the debugger opens up whenever this line is called + can access variable in the context in the console -> now I can really see the value of gesture
 				console.log(gesture)
 			},
 

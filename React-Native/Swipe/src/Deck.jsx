@@ -51,6 +51,7 @@ class Deck extends Component
 			{
 				return 	(
 							<Animated.View
+								key={ item.id }
 								style={ this.state.position.getLayout() }
 								{ ...this.state.panResponder.panHandlers }
 							>

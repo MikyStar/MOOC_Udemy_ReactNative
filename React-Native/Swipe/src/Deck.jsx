@@ -23,7 +23,11 @@ class Deck extends Component
 			 * gesture object is only one object in memory, it's only possible to access those datas at the time they
 			 * are set, otherwise they will be crashed by the next value
 			 */
-			onPanResponderMove : ( event, gesture ) => { console.log(gesture) },
+			onPanResponderMove : ( event, gesture ) =>
+			{
+				debugger; // Makes the debugger opens up whenever this line is called + can access variable in the context in the console -> now I can really see the value of gesture
+				console.log(gesture)
+			},
 
 			onPanResponderRelease : () => {}
 		});

@@ -72,6 +72,14 @@ class Deck extends Component
 		this.state = { panResponder, position, index : 0 }
 	}
 
+	componentWillReceiveProps( nextProps )
+	{
+		if( nextProps.data !== this.props.data )
+		{
+			this.setState( { index : 0 } );
+		}
+	}
+
 	componentWillUpdate()
 	{
 		/*
@@ -79,7 +87,8 @@ class Deck extends Component
 			If 'UIManager.setLayoutAnimationEnabledExperimental' function exists, call it with true
 		*/
 		UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
-		LayoutAnimation.spring(); // because we are in componentWillUpdate, it says everytime the component is supposed to rerender, then do it with a spring animation 
+
+		LayoutAnimation.spring(); // because we are in componentWillUpdate, it says everytime the component is supposed to rerender, then do it with a spring animation
 	}
 
 	forceSwipe( direction )

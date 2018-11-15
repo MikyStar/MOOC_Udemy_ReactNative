@@ -140,7 +140,7 @@ class Deck extends Component
 					return 	(
 								<Animated.View
 									key={item.id}
-									style={this.getCardStyle()}
+									style={ [ this.getCardStyle(), styles.card ]}
 									{...this.state.panResponder.panHandlers}
 								>
 									{this.props.renderCard( item )}
@@ -149,9 +149,16 @@ class Deck extends Component
 				}
 				else
 				{
-					return this.props.renderCard( item );
+					return 	(
+								<View
+									style={ styles.card }
+									key={ item.id }
+								>
+									{ this.props.renderCard( item ) }
+								</View>
+							);
 				}
-			} );
+			} ).reverse();
 		}
 	}
 
@@ -164,5 +171,14 @@ class Deck extends Component
 				);
 	}
 }
+
+const styles =
+{
+	card :
+	{
+		position : 'absolute', // Puts on top; it also make the view shrink to its minimum
+		width : SCREEN_WIDTH
+	}
+};
 
 export default Deck;

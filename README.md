@@ -181,6 +181,9 @@ If you want your app to open an other application, you'll need to use the [Linki
 
 Animations are not depending on the state of a component, that means that the render method is not called again with the animation.
 
+Layout Animations is for really simple animations
+Animated is used to couple advanced animations and gestures
+
 ## Commun problems
 
 ### Error: Cannot add a child that doesn't have a YogaNode to a parent without a measure function!

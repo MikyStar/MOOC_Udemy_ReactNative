@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, PanResponder, Animated, Dimensions } from 'react-native';
+import { View, PanResponder, Animated, Dimensions, LayoutAnimation, UIManager } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
@@ -70,6 +70,16 @@ class Deck extends Component
 
 		// ! The documentation says that position is an attribut of state but that doesn't make sense, it's much cleaner to pass by this.position but let's do by the doc
 		this.state = { panResponder, position, index : 0 }
+	}
+
+	componentWillUpdate()
+	{
+		/*
+			Android
+			If 'UIManager.setLayoutAnimationEnabledExperimental' function exists, call it with true
+		*/
+		UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+		LayoutAnimation.spring(); // because we are in componentWillUpdate, it says everytime the component is supposed to rerender, then do it with a spring animation 
 	}
 
 	forceSwipe( direction )

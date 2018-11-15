@@ -125,27 +125,34 @@ class Deck extends Component
 
 	renderCards()
 	{
-		return this.props.data.map( ( item, cardIndex ) =>
+		if( this.state.index >= this.props.data.length )
 		{
-			if( cardIndex < this.state.index ) return null;
+			return this.props.renderNoMoreCards();
+		}
+		else
+		{
+			return this.props.data.map( ( item, cardIndex ) =>
+			{
+				if ( cardIndex < this.state.index ) return null;
 
-			if( cardIndex === this.state.index )
-			{
-				return 	(
-							<Animated.View
-								key={ item.id }
-								style={ this.getCardStyle() }
-								{ ...this.state.panResponder.panHandlers }
-							>
-								{ this.props.renderCard( item ) }
-							</Animated.View>
-						);
-			}
-			else
-			{
-				return this.props.renderCard( item );
-			}
-		});
+				if ( cardIndex === this.state.index )
+				{
+					return 	(
+								<Animated.View
+									key={item.id}
+									style={this.getCardStyle()}
+									{...this.state.panResponder.panHandlers}
+								>
+									{this.props.renderCard( item )}
+								</Animated.View>
+							);
+				}
+				else
+				{
+					return this.props.renderCard( item );
+				}
+			} );
+		}
 	}
 
 	render()

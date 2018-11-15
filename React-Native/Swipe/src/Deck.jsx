@@ -68,7 +68,8 @@ class Deck extends Component
 			}
 		});
 
-		this.state = { panResponder, position }
+		// ! The documentation says that position is an attribut of state but that doesn't make sense, it's much cleaner to pass by this.position but let's do by the doc
+		this.state = { panResponder, position, index : 0 }
 	}
 
 	forceSwipe( direction )
@@ -79,7 +80,18 @@ class Deck extends Component
 		{
 			toValue : { x, y : 0 },
 			duration : SWIPE_OUT_DURATION
-		}).start();
+		}).start( () => this.onSwipeComplete( direction ) );
+	}
+
+	onSwipeComplete( direction )
+	{
+		const { onSwipeLeft, onSwipeRight, data } = this.props;
+		const item = data[ this.state.index ];
+
+		direction === 'right' ? onSwipeRight( item ) : onSwipeLeft( item );
+
+		this.state.position.setValue( { x : 0, y : 0 } ); // ! Yeah, we are mutating the state, it doesn't make any sense, but this is how the documentation says we have to do
+		this.setState( { index : this.state.index + 1 } );
 	}
 
 	resetPosition()

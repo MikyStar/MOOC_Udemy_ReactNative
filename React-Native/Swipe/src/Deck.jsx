@@ -7,6 +7,16 @@ const SWIPE_OUT_DURATION = 250;
 
 class Deck extends Component
 {
+	/**
+	 * Good solution to not force the use of some props, if we want to provide them we can if not this
+	 * allows us to not have to check everytime whether the function is defined or not and is its a function
+	 */
+	static defaultProps =
+	{
+		onSwipeRight : () => {},
+		onSwipeLeft : () => {}
+	}
+
 	constructor( props )
 	{
 		super( props );

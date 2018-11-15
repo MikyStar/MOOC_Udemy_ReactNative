@@ -150,12 +150,13 @@ class Deck extends Component
 				else
 				{
 					return 	(
-								<View
+								// If the image was flashing before, it's because it passes from being wrapped by a regular view to an animated.view, so we juste wrap from start by an animated.view, there's no real performance leak there
+								<Animated.View
 									style={ styles.card }
 									key={ item.id }
 								>
 									{ this.props.renderCard( item ) }
-								</View>
+								</Animated.View>
 							);
 				}
 			} ).reverse();

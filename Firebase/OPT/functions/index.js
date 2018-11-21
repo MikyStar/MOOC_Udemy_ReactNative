@@ -1,10 +1,14 @@
-const functions = require('firebase-functions');
+const { onRequest } = require("firebase-functions").https;
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-
-exports.helloWorld = functions.https.onRequest( ( request, response ) =>
+module.exports =
 {
-	response.send("Hello from Firebase!");
-});
+	helloWorld : onRequest( ( resuest, response) =>
+	{
+		response.send( 'Hello from Firebase !' );
+	}),
+
+	goodBye : onRequest( ( request, response ) =>
+	{
+		response.send( ' Seeya !' );
+	})
+}

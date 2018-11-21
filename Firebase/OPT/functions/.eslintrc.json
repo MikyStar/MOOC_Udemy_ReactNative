@@ -1,6 +1,5 @@
 {
   "parserOptions": {
-    // Required for certain syntax usages
     "ecmaVersion": 6
   },
   "plugins": [
@@ -56,7 +55,7 @@
     // Warn against unnecessary calls to .bind()
     "no-extra-bind": 1,
 
-    // Warn against unnecessary labels    
+    // Warn against unnecessary labels
     "no-extra-label": 1,
 
     // Disallow leading or trailing decimal points in numeric literals
@@ -111,13 +110,51 @@
     "prefer-arrow-callback": 1,
 
     // Return inside each then() to create readable and reusable Promise chains.
-    // Forces developers to return console logs and http calls in promises. 
+    // Forces developers to return console logs and http calls in promises.
     "promise/always-return": 2,
 
     //Enforces the use of catch() on un-returned promises
     "promise/catch-or-return": 2,
 
     // Warn against nested then() or catch() statements
-    "promise/no-nesting": 1
+	"promise/no-nesting": 1,
+
+	"camelcase": "warn",
+	"brace-style": [
+		"warn",
+		"allman",
+		{
+			"allowSingleLine": true
+		}
+	],
+	"no-console": "off",
+	"no-empty": "warn",
+	"use-isnan": "warn",
+	"no-useless-escape": "off",
+	"valid-jsdoc": "warn",
+	"no-invalid-this": "off",
+	"no-multi-spaces": "warn",
+	"no-unexpected-multiline": "off",
+	"no-new": "warn",
+	"no-unused-vars": "warn",
+	"no-redeclare": "warn",
+	"no-undef": "off",
+	"array-bracket-spacing": "off",
+	"block-spacing": "warn",
+	"comma-spacing": [
+		"warn",
+		{
+			"before": false,
+			"after": true
+		}
+	],
+	"comma-style": [
+		"warn",
+		"last"
+	],
+	"func-call-spacing": [
+		"warn",
+		"never"
+	]
   }
 }

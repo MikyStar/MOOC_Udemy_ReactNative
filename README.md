@@ -221,6 +221,12 @@ Animated is used to couple advanced animations and gestures
 
 - To your build.gradle, put google at the first position of the repositories
 
+# Firebase
+
+```sh
+npm i -g firebase-tools # To create Firebase functions
+```
+
 ## Notes
 
 - I'm using a OnePlus 6 for this tutorial which is an Android smartphone with a Notch ; While not applying CSS to my component, the natural behaviour is that the text of the component for instance is at the top of the screen. `The Notch is covering up some part of the text !`

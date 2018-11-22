@@ -14,6 +14,7 @@ From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-
 - React-Native/TechStackRedux
 - React-Native/Manager
 - React-Native/Swipe
+- React-Native/Firebase-Auth
 
 - Firebase/OTP
 

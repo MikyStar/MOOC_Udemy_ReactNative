@@ -1,8 +1,9 @@
 const admin = require('firebase-admin');
 const { onRequest } = require("firebase-functions").https;
 
-const createUser = require('./create-user');
 const serviceAccount = require('./assets/credentials.json');
+const createUser = require('./create-user');
+const requestOTP = require( './request-otp' );
 
 /**
  * Allows us to access Firebase things like database for instance
@@ -15,5 +16,6 @@ admin.initializeApp(
 
 module.exports =
 {
-	createUser : onRequest( createUser )
+	createUser : onRequest( createUser ),
+	requestOTP : onRequest( requestOTP )
 }

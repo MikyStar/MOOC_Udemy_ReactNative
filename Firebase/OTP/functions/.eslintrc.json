@@ -28,9 +28,6 @@
     // Warn against template literal placeholder syntax in regular strings
     "no-template-curly-in-string": 1,
 
-    // Warn if return statements do not either always or never specify values
-    "consistent-return": 1,
-
     // Warn if no return statements in callbacks of array methods
     "array-callback-return": 1,
 
@@ -111,9 +108,6 @@
 
     //Enforces the use of catch() on un-returned promises
     "promise/catch-or-return": 2,
-
-    // Warn against nested then() or catch() statements
-	"promise/no-nesting": 1,
 
 	"camelcase": "warn",
 	"brace-style": [

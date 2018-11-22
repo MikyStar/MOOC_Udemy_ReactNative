@@ -15,6 +15,8 @@ From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-
 - React-Native/Manager
 - React-Native/Swipe
 
+- Firebase/OTP
+
 # React-Redux
 
 ## Component lifecycle

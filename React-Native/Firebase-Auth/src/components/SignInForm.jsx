@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import axios from 'axios';
+import Firebase from 'firebase';
 
 import sensibleInformations from '../assets/sensibleInformations'
 
@@ -17,10 +18,12 @@ class SignInForm extends Component
 		try
 		{
 			const { data } = await axios.post( sensibleInformations.urlVerifyOTP, { phone : this.state.phone, code : this.state.code })
-			console.log( data.token )
+
+			Firebase.auth().signInWithCustomToken( data.token );
 		}
 		catch( error ) { console.log( error ) }
 	}
+
 
 	render()
 	{

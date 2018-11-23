@@ -15,5 +15,4 @@ class WelcomeScreen extends Component
 	}
 }
 
-
 export default WelcomeScreen;

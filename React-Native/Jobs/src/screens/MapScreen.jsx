@@ -15,5 +15,4 @@ class MapScreen extends Component
 	}
 }
 
-
 export default MapScreen;

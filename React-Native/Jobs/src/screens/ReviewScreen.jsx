@@ -15,5 +15,4 @@ class ReviewScreen extends Component
 	}
 }
 
-
 export default ReviewScreen;

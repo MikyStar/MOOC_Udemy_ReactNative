@@ -4,6 +4,8 @@ import { createAppContainer, createBottomTabNavigator } from "react-navigation";
 
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
+import MapScreen from './screens/MapScreen';
+import DeckScreen from './screens/DeckScreen';
 
 class Main extends Component
 {
@@ -11,8 +13,16 @@ class Main extends Component
 	{
 		const MainNavigator = createBottomTabNavigator(
 		{
-			Welcome : WelcomeScreen,
-			Auth : AuthScreen
+			welcome : { screen : WelcomeScreen },
+			auth : { screen : AuthScreen },
+			main :
+			{
+				screen : createBottomTabNavigator(
+				{
+					map : { screen : MapScreen },
+					deck : { screen : DeckScreen }
+				})
+			}
 		});
 
 		const AppContainer = createAppContainer( MainNavigator );

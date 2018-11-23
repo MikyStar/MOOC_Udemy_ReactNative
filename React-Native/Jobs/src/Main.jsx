@@ -16,19 +16,19 @@ class Main extends Component
 	{
 		const MainNavigator = createBottomTabNavigator(
 		{
-			welcome : { screen : WelcomeScreen },
-			auth : { screen : AuthScreen },
+			[ routes.welcome ] : { screen : WelcomeScreen },
+			[ routes.auth ] : { screen : AuthScreen },
 			main :
 			{
 				screen : createBottomTabNavigator(
 				{
-					map : { screen : MapScreen },
-					deck : { screen : DeckScreen },
+					[ routes.map ] : { screen : MapScreen },
+					[ routes.deck ] : { screen : DeckScreen },
 					review :
 					{
 						screen : createStackNavigator(
 						{
-							review : { screen : ReviewScreen },
+							[ routes.review ] : { screen : ReviewScreen },
 							[ routes.settings ] : { screen : SettingsScreen }
 						})
 					}

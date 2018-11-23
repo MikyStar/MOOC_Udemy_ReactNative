@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 
+import routes from './routes'
+
 class ReviewScreen extends Component
 {
 	/**
@@ -14,7 +16,7 @@ class ReviewScreen extends Component
 		(
 			<Button
 				title='Settings'
-				onPress={ () => { navigation.navigate( 'settings' ) } }
+				onPress={ () => { navigation.navigate( routes.settings ) } }
 			/>
 		)
 	});

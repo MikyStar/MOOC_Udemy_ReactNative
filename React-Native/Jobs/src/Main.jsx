@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { createAppContainer, createBottomTabNavigator, createStackNavigator } from "react-navigation";
 
+import routes from './screens/routes'
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import MapScreen from './screens/MapScreen';
@@ -28,7 +29,7 @@ class Main extends Component
 						screen : createStackNavigator(
 						{
 							review : { screen : ReviewScreen },
-							settings : { screen : SettingsScreen }
+							[ routes.settings ] : { screen : SettingsScreen }
 						})
 					}
 				})

@@ -7,7 +7,7 @@ From the [React Native MOOC](https://www.udemy.com/tuto-react-native-pour-debuta
 - React-Redux/4-Forum
 - React-Native/SimpleTaskManager
 
-From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-native-and-redux-course/learn/v4/overview) on Udemy by Stephen Grider :
+From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-native-and-redux-course/learn/v4/overview)and [ React Native : Advanced Concepts](https://www.udemy.com/react-native-advanced/learn/v4/overview) on Udemy by Stephen Grider :
 
 - React-Native/albums
 - React-Native/auth
@@ -15,6 +15,7 @@ From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-
 - React-Native/Manager
 - React-Native/Swipe
 - React-Native/Firebase-Auth
+- React-Native/Jobs
 
 - Firebase/OTP
 

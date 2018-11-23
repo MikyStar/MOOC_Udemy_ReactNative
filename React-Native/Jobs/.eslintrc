@@ -1,0 +1,68 @@
+{
+	"extends":
+	[
+		"eslint:recommended"
+	],
+	"plugins":
+	[
+		"react",
+		"react-native"
+	],
+	"ecmaFeatures":
+	{
+		"jsx": true
+	},
+	"env":
+	{
+		"react-native/react-native": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 8
+	},
+	"parser": "babel-eslint",
+	"rules": {
+		"camelcase": "warn",
+		"brace-style": [
+			"warn",
+			"allman",
+			{
+				"allowSingleLine": true
+			}
+		],
+		"no-console": "off",
+		"no-empty": "warn",
+		"use-isnan": "warn",
+		"no-useless-escape": "off",
+		"valid-jsdoc": "warn",
+		"no-invalid-this": "off",
+		"no-multi-spaces": "warn",
+		"no-unexpected-multiline": "off",
+		"no-new": "warn",
+		"no-unused-vars": "warn",
+		"no-redeclare": "warn",
+		"no-undef": "off",
+		"array-bracket-spacing": "off",
+		"block-spacing": "warn",
+		"comma-spacing": [
+			"warn",
+			{
+				"before": false,
+				"after": true
+			}
+		],
+		"comma-style": [
+			"warn",
+			"last"
+		],
+		"func-call-spacing": [
+			"warn",
+			"never"
+		],
+		"react/jsx-curly-spacing": [
+			2,
+			"always"
+		],
+		"react/jsx-closing-bracket-location" : "off",
+		"react/sort-comp" : "off"
+	}
+}

@@ -8,7 +8,7 @@ class Main extends Component
 		return (
 			<View style={styles.container}>
 
-				<Text>Hiiiiiiiii ! </Text>
+
 
 			</View>
 		);
@@ -16,13 +16,13 @@ class Main extends Component
 }
 
 const styles = StyleSheet.create(
+{
+	container:
 	{
-		container:
-		{
-			flex: 1,
-			justifyContent : 'center'
-		}
-	} );
+		flex: 1,
+		justifyContent : 'center'
+	}
+} );
 
 
 export default Main;

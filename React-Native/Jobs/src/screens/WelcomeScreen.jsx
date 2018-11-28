@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 import Slides from '../components/Slides';
+import routes from '../screens/routes'
 
 const SLIDE_DATA =
 [
@@ -21,12 +22,18 @@ const SLIDE_DATA =
 
 class WelcomeScreen extends Component
 {
+	onSlidesComplete = () =>
+	{
+		// Since we're using react-navigation, this props exists for every component rendered by the navigator ( see in Main.jsx )
+		this.props.navigation.navigate( routes.auth );
+	}
+
 	render()
 	{
 		return 	(
 					<View style={{ flex: 1 }}>
 
-						<Slides data={ SLIDE_DATA } />
+						<Slides data={ SLIDE_DATA } onComplete={ this.onSlidesComplete } />
 
 					</View>
 				);

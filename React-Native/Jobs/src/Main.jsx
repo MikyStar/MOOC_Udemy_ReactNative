@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { createAppContainer, createBottomTabNavigator, createStackNavigator } from "react-navigation";
+import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
 
+import store from './store'
 import routes from './screens/routes'
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -39,11 +41,13 @@ class Main extends Component
 		const AppContainer = createAppContainer( MainNavigator );
 
 		return 	(
-					<View style={styles.container}>
+					<Provider store={ store }>
+						<View style={styles.container}>
 
-						<AppContainer />
+							<AppContainer />
 
-					</View>
+						</View>
+					</Provider>
 				);
 	}
 }

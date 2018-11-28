@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import { Button } from 'react-native-elements';
 
 import routes from './routes'
@@ -20,7 +20,11 @@ class ReviewScreen extends Component
 				backgroundColor='rgba(0, 0, 0, 0)'
 				color='rgba(0, 122, 255, 1)'
 			/>
-		)
+		),
+		style :
+		{
+			marginTop : Platform.OS === 'android' ? 24 : 0
+		}
 	});
 
 	render()

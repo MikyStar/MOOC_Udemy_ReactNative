@@ -17,6 +17,8 @@ class ReviewScreen extends Component
 			<Button
 				title='Settings'
 				onPress={ () => { navigation.navigate( routes.settings ) } }
+				backgroundColor='rgba(0, 0, 0, 0)'
+				color='rgba(0, 122, 255, 1)'
 			/>
 		)
 	});

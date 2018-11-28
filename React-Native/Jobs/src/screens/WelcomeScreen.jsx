@@ -22,6 +22,11 @@ const SLIDE_DATA =
 
 class WelcomeScreen extends Component
 {
+	static navigationOptions =
+	{
+		tabBarVisible : false
+	}
+
 	onSlidesComplete = () =>
 	{
 		// Since we're using react-navigation, this props exists for every component rendered by the navigator ( see in Main.jsx )

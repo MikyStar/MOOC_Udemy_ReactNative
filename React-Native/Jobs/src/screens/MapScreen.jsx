@@ -5,6 +5,7 @@ import { MapView, Permissions } from 'expo'
 import { connect } from 'react-redux';
 
 import * as actions from '../actions'
+import routes from './routes'
 
 class MapScreen extends Component
 {
@@ -33,7 +34,7 @@ class MapScreen extends Component
 
 	onButtonPress = () =>
 	{
-		this.props.fetchJobs( this.state.region );
+		this.props.fetchJobs( this.state.region, () => this.props.navigation.navigate( routes.deck ));
 	}
 
 	render()

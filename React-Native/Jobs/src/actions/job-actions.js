@@ -21,7 +21,7 @@ const INDEED_URL = 'http://api.indeed.com/ads/apisearch?'
 
 module.exports =
 {
-	fetchJobs : region => async dispatch =>
+	fetchJobs : ( region, callback ) => async dispatch =>
 	{
 		try
 		{
@@ -31,6 +31,8 @@ module.exports =
 			// let { data } = await axios.get( url ); //There's a problem with the api so we take a workarround with indeedDatas
 
 			dispatch( { type : types.FETCH_JOBS, payload : indeedDatas } );
+
+			callback();
 		}
 		catch( error ) { console.error( error ) }
 	}
@@ -40,5 +42,5 @@ const buildJobsURL = zipcode =>
 {
 	const query = qs.stringify( { ...JOB_QUERRY_PARAMS, l : zipcode } );
 
-	return `${ INDEED_URL }${ JOB_QUERRY_PARAMS }`;
+	return `${ INDEED_URL }${ query }`;
 }

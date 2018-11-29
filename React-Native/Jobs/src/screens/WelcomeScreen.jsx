@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, AsyncStorage } from 'react-native';
+import _ from 'lodash'
+import { AppLoading } from 'expo'
 
 import Slides from '../components/Slides';
 import routes from '../screens/routes'
@@ -27,6 +29,21 @@ class WelcomeScreen extends Component
 		tabBarVisible : false
 	}
 
+	state = { token : null }
+
+	async componentWillMount()
+	{
+		let token = await AsyncStorage.getItem( 'fb_token' );
+
+		if( token )
+		{
+			this.props.navigation.navigate( routes.map );
+			this.setState( { token } );
+		}
+		else
+			this.setState( { token : false } );
+	}
+
 	onSlidesComplete = () =>
 	{
 		// Since we're using react-navigation, this props exists for every component rendered by the navigator ( see in Main.jsx )
@@ -35,6 +52,9 @@ class WelcomeScreen extends Component
 
 	render()
 	{
+		if( _.isNull( this.state.token ) )
+			return <AppLoading />
+
 		return 	(
 					<View style={{ flex: 1 }}>
 

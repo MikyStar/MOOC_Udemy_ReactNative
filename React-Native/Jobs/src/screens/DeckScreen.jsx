@@ -66,6 +66,7 @@ class DeckScreen extends Component
 							whereas while putting the () the function will also be called once the render
 							function is called */
 							renderNoMoreCards={ this.renderNoMoreCards }
+							keyProp='jobkey'
 						/>
 
 					</View>

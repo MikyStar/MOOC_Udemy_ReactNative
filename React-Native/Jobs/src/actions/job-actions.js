@@ -37,6 +37,11 @@ module.exports =
 			callback();
 		}
 		catch( error ) { console.error( error ) }
+	},
+
+	likeJob : ( job ) =>
+	{
+		return { type : types.LIKE_JOB, payload : job };
 	}
 }
 

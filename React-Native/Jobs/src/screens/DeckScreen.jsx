@@ -5,7 +5,7 @@ import { MapView } from 'expo'
 import { Card, Button } from 'react-native-elements';
 
 import Swipe from '../components/Swipe'
-import actions from '../actions'
+import * as actions from '../actions'
 
 class DeckScreen extends Component
 {
@@ -57,7 +57,7 @@ class DeckScreen extends Component
 	render()
 	{
 		return 	(
-					<View>
+					<View style={ { marginTop : 20 } } >
 
 						<Swipe
 							data={ this.props.jobs }
@@ -66,6 +66,7 @@ class DeckScreen extends Component
 							whereas while putting the () the function will also be called once the render
 							function is called */
 							renderNoMoreCards={ this.renderNoMoreCards }
+							onSwipeRight={ job => this.props.likeJob( job ) }
 							keyProp='jobkey'
 						/>
 

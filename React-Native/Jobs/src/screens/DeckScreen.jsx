@@ -19,10 +19,8 @@ class DeckScreen extends Component
 			longitudeDelta : 0.02
 		}
 
-		console.log( job )
-
 		return 	(
-					<Card title={ job.jobtitle }>
+					<Card title={ job.jobtitle } containerStyle={ { height : 500 } }>
 
 						<View style={ { height : 300 } }>
 							<MapView

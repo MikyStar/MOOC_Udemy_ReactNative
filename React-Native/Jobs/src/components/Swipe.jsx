@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Animated, PanResponder, Dimensions, LayoutAnimation, UIManager } from 'react-native';
+import { View, Animated, PanResponder, Dimensions, LayoutAnimation, UIManager, Platform } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get( 'window' ).width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
@@ -112,7 +112,7 @@ class Swipe extends Component
 		if ( this.state.index >= this.props.data.length )
 			return this.props.renderNoMoreCards();
 
-		return this.props.data.map( ( item, i ) =>
+		const deck = this.props.data.map( ( item, i ) =>
 		{
 			if ( i < this.state.index )
 				return null;
@@ -130,15 +130,17 @@ class Swipe extends Component
 						);
 			}
 
-			return (
-				<Animated.View
-					key={ item.id }
-					style={ [ styles.cardStyle, { top: 10 * ( i - this.state.index ), zIndex: 5 } ] }
-				>
-					{ this.props.renderCard( item ) }
-				</Animated.View>
-			);
-		}).reverse();
+			return 	(
+						<Animated.View
+							key={ item.id }
+							style={ [ styles.cardStyle, { top: 10 * ( i - this.state.index ), zIndex: -i } ] }
+						>
+							{ this.props.renderCard( item ) }
+						</Animated.View>
+					);
+		});
+
+		return Platform.OS === 'android' ? deck : deck.reverse(); // Don't ask any question, even the teacher doesn't know why
 	}
 
 	render()

@@ -25,10 +25,12 @@ module.exports =
 	{
 		try
 		{
+			/*
 			let zipcode = await Location.reverseGeocodeAsync( region );
 			const url = buildJobsURL( zipcode );
 
-			// let { data } = await axios.get( url ); //There's a problem with the api so we take a workarround with indeedDatas
+			let { data } = await axios.get( url ); //There's a problem with the api so we take a workarround with indeedDatas
+			*/
 
 			dispatch( { type : types.FETCH_JOBS, payload : indeedDatas } );
 

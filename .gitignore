@@ -5,3 +5,7 @@ Firebase/OTP/functions/assets/credentials\.json
 React-Native/Firebase-Auth/src/assets/sensibleInformations\.js
 
 React-Native/Jobs/src/assets/sensibleInformations\.js
+
+React-Native/HotDog/MLTuriCreate
+
+*.DS_Store

@@ -1,49 +1,99 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import CoreMLImage from "react-native-core-ml-image";
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+const BEST_MATCH_THRESHOLD = 0.5;
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+export default class App extends Component
+{
+	constructor( props )
+	{
+		super( props );
+		this.state = { bestMatch: null };
+	}
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
+
+	onClassification( classifications )
+	{
+		var bestMatch = null;
+
+		if ( classifications && classifications.length > 0 )
+		{
+			// Loop through all of the classifications and find the best match
+			classifications.forEach( ( classification ) =>
+			{
+				if ( !bestMatch || classification.confidence > bestMatch.confidence )
+				{
+					bestMatch = classification;
+				}
+			} );
+
+			// Is best match confidence better than our threshold?
+			if ( bestMatch.confidence >= BEST_MATCH_THRESHOLD )
+			{
+				this.setState( {
+					bestMatch: bestMatch
+				} );
+			} else
+			{
+				this.setState( {
+					bestMatch: null
+				} );
+			}
+		}
+		else
+		{
+			this.setState( {
+				bestMatch: null
+			} );
+		}
+
+	}
+
+	render()
+	{
+		var classification = null;
+
+		if ( this.state.bestMatch )
+		{
+			if ( this.state.bestMatch && this.state.bestMatch.identifier && this.state.bestMatch.identifier == "hotdog" )
+			{
+				classification = "🌭 Hot Dog 🌭";
+			}
+			else
+			{
+				classification = "Not hot dog";
+			}
+
+		}
+
+		return 	(
+					<View style={styles.container}>
+						<CoreMLImage modelFile="Classifier" onClassification={( evt ) => this.onClassification( evt )}>
+							<View style={styles.container}>
+								<Text style={styles.info}>{classification}</Text>
+							</View>
+						</CoreMLImage>
+					</View>
+				);
+	}
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const styles = StyleSheet.create(
+{
+	container:
+	{
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: 'transparent',
+	},
+	info:
+	{
+		fontSize: 20,
+		color: "#ffffff",
+		textAlign: 'center',
+		fontWeight: "900",
+		margin: 10,
+	}
+} );

@@ -42,6 +42,11 @@ module.exports =
 	likeJob : ( job ) =>
 	{
 		return { type : types.LIKE_JOB, payload : job };
+	},
+
+	clearLikedJobs : () =>
+	{
+		return { type : types.CLEAR_LIKED_JOBS }
 	}
 }
 

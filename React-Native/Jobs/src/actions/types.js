@@ -4,5 +4,7 @@ module.exports =
 	FACEBOOK_LOGIN_FAIL : 'facebook-login-fail',
 
 	FETCH_JOBS : 'fetch-jobs',
-	LIKE_JOB : 'like-job'
+	LIKE_JOB : 'like-job',
+
+	CLEAR_LIKED_JOBS : 'clear-liked-jobs'
 }

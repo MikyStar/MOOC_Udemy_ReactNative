@@ -4,7 +4,8 @@ import { createAppContainer, createBottomTabNavigator, createStackNavigator } fr
 import { Provider } from 'react-redux';
 import { Icon } from 'react-native-elements';
 
-import store from './store'
+import { PersistGate } from "redux-persist/es/integration/react";
+import configureStore from './store'
 import routes from './screens/routes'
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -87,13 +88,18 @@ class Main extends Component
 
 		const AppContainer = createAppContainer( MainNavigator );
 
+		const { persistor, store } = configureStore();
+
 		return 	(
 					<Provider store={ store }>
-						<View style={styles.container}>
+						<PersistGate persistor={persistor}>
 
-							<AppContainer />
+							<View style={styles.container}>
 
-						</View>
+								<AppContainer />
+
+							</View>
+						</PersistGate>
 					</Provider>
 				);
 	}

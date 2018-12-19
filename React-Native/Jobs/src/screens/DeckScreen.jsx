@@ -6,6 +6,7 @@ import { Card, Button } from 'react-native-elements';
 
 import Swipe from '../components/Swipe'
 import * as actions from '../actions'
+import routes from './routes'
 
 class DeckScreen extends Component
 {
@@ -47,10 +48,29 @@ class DeckScreen extends Component
 				);
 	}
 
-	renderNoMoreCards()
+	/**
+	 * ! GOTCHA
+	 * Don't forget, this function is only defined here, but it's called within the Swipe component
+	 * this means that inside the props, if I'm using a callback and I use the keyword 'this', for instance
+	 * "onPress={ () => this.props.navigation.navigate( routes.map ) }"", 'this' will refer to the context
+	 * inside the Swipe component and for this example Swipe has no reference to the navigation props so it
+	 * will be undefined as is
+	 * ! This is to prevent those kind of stuff that we transformed "renderNoMoreCards" to an arrow function
+	 */
+	renderNoMoreCards = () =>
 	{
 		return 	(
-					<Card title='No more Jobs'></Card>
+					<Card title='No more Jobs'>
+
+						<Button
+							title='Back to map'
+							large
+							icon={ { name : 'my-location' } }
+							backgroundColor='#03A9F4'
+							onPress={ () => this.props.navigation.navigate( routes.map ) }
+						/>
+
+					</Card>
 				);
 	}
 

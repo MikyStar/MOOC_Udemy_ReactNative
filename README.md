@@ -19,10 +19,6 @@ From the [React Native and Redux MOOC](https://www.udemy.com/the-complete-react-
 
 - Firebase/OTP
 
-From the [Medium MOOC "Realtime image recognition in ReactNative with CoreML"](https://medium.com/jigsaw-xyz/realtime-image-recognition-in-reactnative-with-coreml-24ed7d414f23)
-
-- React-Native/HotDog
-
 # React-Redux
 
 ## Component lifecycle

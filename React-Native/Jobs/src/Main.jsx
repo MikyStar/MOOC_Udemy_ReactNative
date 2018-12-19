@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Platform } from 'react-native';
 import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 import { Icon } from 'react-native-elements';
@@ -48,7 +48,17 @@ class Main extends Component
 						screen : createStackNavigator(
 						{
 							[ routes.review ] : { screen : ReviewScreen },
-							[ routes.settings ] : { screen : SettingsScreen }
+							[ routes.settings ] :
+							{
+								screen : SettingsScreen,
+								navigationOptions :
+								{
+									headerStyle :
+									{
+										marginTop: Platform.OS === 'android' ? 24 : 0
+									}
+								}
+							}
 						}),
 						navigationOptions:
 						{
@@ -56,7 +66,15 @@ class Main extends Component
 							title: 'Review Jobs'
 						}
 					}
-				})
+				},
+				{
+					tabBarPosition : 'bottom',
+					swipeEnabled : false,
+					tabBarOptions :
+					{
+						labelStyle : { fontSize : 12 }
+					}
+				}),
 			}
 		},
 		{

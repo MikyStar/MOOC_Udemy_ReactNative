@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { Button } from 'react-native-elements'
+import { Button, Icon } from 'react-native-elements'
 import { MapView, Permissions } from 'expo'
 import { connect } from 'react-redux';
 

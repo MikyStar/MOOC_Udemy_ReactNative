@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
+import { Icon } from 'react-native-elements';
 
 import store from './store'
 import routes from './screens/routes'
@@ -24,18 +25,46 @@ class Main extends Component
 			{
 				screen : createBottomTabNavigator(
 				{
-					[ routes.map ] : { screen : MapScreen },
-					[ routes.deck ] : { screen : DeckScreen },
+					[routes.map]:
+					{
+						screen: MapScreen,
+						navigationOptions:
+						{
+							title: 'Map',
+							tabBarIcon: ( { tintColor } ) => <Icon name="my-location" size={30} color={tintColor} />
+						}
+					},
+					[ routes.deck ] :
+					{
+						screen : DeckScreen,
+						navigationOptions :
+						{
+							title : 'Jobs',
+							tabBarIcon: ( { tintColor } ) => <Icon name="description" size={30} color={tintColor} />
+						}
+					},
 					review :
 					{
 						screen : createStackNavigator(
 						{
 							[ routes.review ] : { screen : ReviewScreen },
 							[ routes.settings ] : { screen : SettingsScreen }
-						})
+						}),
+						navigationOptions:
+						{
+							tabBarIcon: ( { tintColor } ) => <Icon name='favorite' size={30} color={tintColor} />,
+							title: 'Review Jobs'
+						}
 					}
 				})
 			}
+		},
+		{
+			navigationOptions :
+			{
+				tabBarVisible : false
+			},
+			lazy : true
 		});
 
 		const AppContainer = createAppContainer( MainNavigator );
